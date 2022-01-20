@@ -6,7 +6,7 @@
   >
     <div class="topSwiper">
       <!-- 轮播图 -->
-      <swiper style="height: 3rem;border-radius:0.2rem" :options="bannerSwiperOptions" ref="bannerSwiper">
+      <swiper style="height: 3rem;border-radius:0.2rem;margin-bottom: 0.3rem;" :options="bannerSwiperOptions" ref="bannerSwiper">
         <swiper-slide>
           <img :src="require('../assets/images/index/turnImg1.jpg')"/>
           <!--              :src="imgHead + item.menuLogo"-->
@@ -20,10 +20,12 @@
       </swiper>
 
       <!--      菜单栏-->
-      <div class="menus">
-        <div @click="goPath('/secondhandGoods')" class="menusItem" v-for="count in 8" :key="'menusItem'+count">
-          <div class="line1"></div>
-          <div class="line2">{{ count }}</div>
+      <div class="menus" v-if="menuList.length!==0">
+        <div @click="goPath(item.component)" class="menusItem" v-for="(item,index) in menuList" :key="'menusItem'+index">
+          <div class="line1">
+            <img :src="item.icon" alt="">
+          </div>
+          <div class="line2">{{ item.menuName }}</div>
         </div>
       </div>
     </div>
@@ -41,6 +43,9 @@ export default {
   name: "index",
   data: function () {
     return {
+      // 获取首页菜单
+      indexParentId: 504,
+      menuList: [],
       axiosed: true,
       bannerSwiperOptions: {
         pagination: {
@@ -64,6 +69,19 @@ export default {
     IndexBottomBar,
     swiper,
     swiperSlide
+  },
+  created() {
+    this.$func.axios(this.$api.getIndexMenus, {
+      parentId: 504,
+    }, {
+      type: "get",
+      openLoad: true,
+      closeLoad: true,
+      // flag: 2,
+    }).then(res => {
+      this.menuList = res.data
+      // console.log(res)
+    })
   }
 }
 </script>

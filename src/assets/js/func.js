@@ -437,7 +437,12 @@ const func = {
         'X-Requested-With': 'XMLHttpRequest'
       }))
 
-      // 携带token
+      // // 携带token
+      // let ls = window.localStorage;
+      // let appToken = ls.getItem('appToken');
+      // 'appToken': appToken
+
+
       // if (carryKey) {
       //   let ls = window.localStorage;
 
@@ -453,7 +458,9 @@ const func = {
       baseURL: $define.AXIOSBASEURL,
       timeout: $define.AXIOSTIMEOUT,
       url: url,
-      data: (param instanceof FormData) ? param : (conf.type === 'POST' ? qs.stringify(param) : param),
+      [conf.type.toUpperCase() === 'POST' ? 'data' : 'params']: (param instanceof FormData) ? param : (conf.type.toUpperCase() === 'POST' ? qs.stringify(param) : param),
+      // data: (param instanceof FormData) ? param : (conf.type === 'POST' ? qs.stringify(param) : param),
+      // params: (param instanceof FormData) ? param : (conf.type === 'POST' ? qs.stringify(param) : param),
       openLoad: conf.openLoad,
       closeLoad: conf.closeLoad
     }).then((res) => {
@@ -466,7 +473,7 @@ const func = {
         } else if (message.indexOf('Network Error') !== (-1)) {
           this.openAlert(`报错：${url}接口请求跨域`, '请注意')
         } else {
-          this.openAlert(`报错：${url}接口${ err.response.status}`, '请注意')
+          this.openAlert(`报错：${url}接口${err.response.status}`, '请注意')
         }
       } else {
         console.log('!!!接口报错!!!');
@@ -489,15 +496,19 @@ const func = {
         desc: conf.desc,
         link: conf.link,
         imgUrl: conf.imgUrl,
-        success: function () {},
-        cancel: function () {}
+        success: function () {
+        },
+        cancel: function () {
+        }
       })
       wechat.onMenuShareTimeline({ // 分享到朋友圈
         title: conf.title,
         link: conf.link,
         imgUrl: conf.imgUrl,
-        success: function () {},
-        cancel: function () {}
+        success: function () {
+        },
+        cancel: function () {
+        }
       })
     })
 

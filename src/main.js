@@ -6,17 +6,24 @@ import router from './config/router'
 import {
   WechatPlugin
 } from 'vux'
+
 Vue.use(WechatPlugin)
 
 import ReturnTop from './components/ReturnTop/'
+
 Vue.use(ReturnTop);
 
 import 'swiper/dist/css/swiper.css'
 
 // 图片检测指令 v-real-img
 import './utils/real.img.js';
+import axios from "axios";
 
 require('./assets/less/ctl.less') // 引入样式
+
+// 设置axios携带token
+localStorage.setItem('token', 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJsb2dpbl91c2VyX2tleSI6IjQxNmFhNWFlLTI0ODEtNDZlMy04MDE2LWJkMDIzZTZmODI2MSJ9.VbSfYYoAv7yDt9jymWL_0Nhj8p9wELYhkhwPzL34HL7RP_TcAdMQTnLsofxgCkFmDvTS6-nMQHdmB8o5ZxXe1w')
+axios.defaults.headers.common['Authorization'] = localStorage.getItem('token')
 
 // 添加实例属性
 Object.assign(Vue.prototype, {

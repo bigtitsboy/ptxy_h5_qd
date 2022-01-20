@@ -1,3 +1,4 @@
 export default {
-  test: '/web/generic/country/list'
+  test: '/',
+  getIndexMenus:'/controller/appMenu/list'
 }

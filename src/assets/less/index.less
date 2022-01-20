@@ -4,10 +4,11 @@
   position: relative;
   display: flex;
   height: 100%;
-  overflow: visible;
+  //overflow: visible;
   flex-wrap: wrap;
   flex-direction: column;
   flex: 1;
+  overflow: hidden;
 
   .topSwiper {
     width: 100%;
@@ -29,19 +30,26 @@
       flex-wrap: wrap;
 
       .menusItem {
-        margin-top: 0.3rem;
+        margin-bottom: 0.3rem;
         display: flex;
         flex-direction: column;
         align-items: center;
         min-width: calc(100% / 4);
 
         .line1 {
-          background: orange;
-          height: 0.45rem;
-          width: 0.45rem;
+          //background: orange;
+          height: 0.72rem;
+          width: 0.72rem;
+
+          img{
+            height: 100%;
+            width: 100%;
+          }
         }
 
         .line2 {
+          color: #333333;
+          font-size: 0.28rem;
         }
       }
     }

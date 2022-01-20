@@ -3,14 +3,16 @@
     <router-view v-if="showView" class="view-wrap"></router-view>
     <loading :show="vuxLoad.state" :text="vuxLoad.text"></loading>
     <toast v-model="vuxToast.state" :type="vuxToast.type">{{
-      vuxToast.text
-    }}</toast>
+        vuxToast.text
+      }}
+    </toast>
     <alert
       v-model="vuxAlert.state"
       :title="vuxAlert.tit"
       :button-text="vuxAlert.btn"
       :hide-on-blur="true"
-      >{{ vuxAlert.text }}</alert
+    >{{ vuxAlert.text }}
+    </alert
     >
   </div>
 </template>
@@ -49,7 +51,8 @@ export default {
   created() {
     this.$func.flexible();
     this.updateHtmlFile(); // 更新html文件
-    this.getSystemVersion(); // 获取系统版本号
+      this.showView = true;
+    // this.getSystemVersion(); // 获取系统版本号
   },
   mounted() {
     this.$eventBus.$on("vux-load", (conf) => {
@@ -77,45 +80,45 @@ export default {
       });
     },
     // 获取系统版本号
-    async getSystemVersion() {
-      let res = await this.$func.axios(
-        this.$api.test, // 示例接口
-        {},
-        {
-          type: "GET",
-          openLoad: true,
-          closeLoad: false,
-        }
-      );
-      if (!res) {
-        return;
-      }
-
-      this.$func.closeLoad();
-      this.showView = true;
-
-      // 本地版本号
-      let lsSystemVersion = this.$func.storageGet("system_version", "ls");
-
-      if (isNaN(parseFloat(lsSystemVersion))) {
-        this.$func.storageSet(
-          {
-            system_version: res.result,
-          },
-          "ls"
-        ); // 存储版本号
-      } else {
-        if (parseFloat(lsSystemVersion) !== parseFloat(res.result)) {
-          this.$func.storageSet(
-            {
-              system_version: res.result,
-            },
-            "ls"
-          ); // 更新版本号
-          window.location.reload(); // 项目重载
-        }
-      }
-    },
+    // async getSystemVersion() {
+    //   let res = await this.$func.axios(
+    //     this.$api.test, // 示例接口
+    //     {},
+    //     {
+    //       type: "GET",
+    //       openLoad: true,
+    //       closeLoad: false,
+    //     }
+    //   );
+    //   if (!res) {
+    //     return;
+    //   }
+    //
+    //   this.$func.closeLoad();
+    //   this.showView = true;
+    //
+    //   // 本地版本号
+    //   let lsSystemVersion = this.$func.storageGet("system_version", "ls");
+    //
+    //   if (isNaN(parseFloat(lsSystemVersion))) {
+    //     this.$func.storageSet(
+    //       {
+    //         system_version: res.result,
+    //       },
+    //       "ls"
+    //     ); // 存储版本号
+    //   } else {
+    //     if (parseFloat(lsSystemVersion) !== parseFloat(res.result)) {
+    //       this.$func.storageSet(
+    //         {
+    //           system_version: res.result,
+    //         },
+    //         "ls"
+    //       ); // 更新版本号
+    //       window.location.reload(); // 项目重载
+    //     }
+    //   }
+    // },
   },
   components: {
     Loading,

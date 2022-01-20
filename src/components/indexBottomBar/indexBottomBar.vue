@@ -11,7 +11,7 @@
       <div v-else class="line2">首页</div>
     </div>
     <div class="bottomBarItem center">
-      <img :src="require('../../assets/images/index/project_add_icon.png')" alt="">
+      <img :src="require('../../assets/images/index/二手回收.png')" alt="">
     </div>
     <div class="bottomBarItem" @click="goPath('/userCenter')">
       <div class="line1">
@@ -84,8 +84,8 @@ export default {
     border-bottom: none;
 
     img {
-      height: 100%;
-      width: 100%;
+      height: 130%;
+      width: auto;
     }
   }
 }
