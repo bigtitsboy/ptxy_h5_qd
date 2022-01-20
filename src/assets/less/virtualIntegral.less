@@ -1,0 +1,218 @@
+.view-wrap.virtualIntegral-main {
+  .integral-info-wrap {
+    height: 3.3rem;
+    background: linear-gradient(to right, #47a2fd 0%, #3a94ff 100%);
+    &:extend(.pr);
+    overflow: hidden;
+
+    .modular-box-model {
+      height: 3rem;
+      &:extend(.aicjcsb);
+      padding: 0 0.3rem;
+    }
+
+    .left-hand {
+      &:extend(.jcc);
+      flex-direction: column;
+
+      .top-area {
+        color: #ffffff;
+        font-size: 0.28rem;
+        padding-top: 0.12rem;
+      }
+
+      .bottom-area {
+        color: #ffffff;
+        font-size: 0.8rem;
+      }
+    }
+
+    .right-hand {
+      height: 1.74rem;
+      box-sizing: border-box;
+      padding-bottom: 0.32rem;
+      &:extend(.df);
+      flex-direction: column;
+      justify-content: space-between;
+
+      .top-area {
+        &:extend(.pr);
+        color: #ffffff;
+        font-size: 0.28rem;
+        text-align: right;
+        padding-top: 0.12rem;
+        &:extend(.aic);
+        justify-content: flex-end;
+
+        &:after {
+          content: '\200B';
+          width: 0.130rem;
+          height: 0.3rem;
+          margin-left: 0.12rem;
+          .bg-image('/virtualIntegral/integral_introduce_arrow.png');
+        }
+      }
+
+      .bottom-area {
+        height: 0.5rem;
+        padding: 0 0.24rem;
+        &:extend(.jccaic);
+        .vux-1px;
+        color: #fff;
+
+        &:before {
+          box-sizing: border-box;
+          border-color: #ffffff !important;
+          border-radius: 0.5rem;
+        }
+      }
+    }
+
+    .money-state-icon {
+      right: -0.1rem;
+      bottom: -0.96rem;
+      &:extend(.pa);
+      width: 2.5rem;
+      height: 3.2rem;
+      .bg-image('/virtualIntegral/integral_state_icon.png');
+    }
+  }
+
+  .integral-bill-wrap {
+    min-height: calc(100% - 3rem);
+    margin-top: -0.3rem;
+    background: #ffffff;
+    &:extend(.pr);
+    border-radius: 0.3rem 0.3rem 0 0;
+
+    .tab-navs {
+      &:extend(.aic);
+      height: 1.14rem;
+      .vux-1px-b;
+
+      &:after {
+        left: 0.3rem;
+        right: 0.3rem;
+      }
+
+      &.tab-navs-fixed {
+        &:extend(.pf);
+        left: 0;
+        right: 0;
+        top: 0;
+        background: #fff;
+        z-index: 5;
+
+        // &:after {
+        //   display: none;
+        // }
+      }
+
+      .nav {
+        height: calc(100%);
+        flex: 1;
+        color: #333333;
+        font-size: 0.32rem;
+        &:extend(.jccaic);
+
+        span {
+          height: calc(100%);
+          &:extend(.aic);
+          padding: 0 0.2rem;
+        }
+
+        &.active span {
+          &:extend(.pr);
+          color: #11b367;
+
+          &:after {
+            content: '\200B';
+            &:extend(.pa);
+            height: 0.04rem;
+            border-radius: 0.02rem;
+            background: #11b367;
+            bottom: 0.2rem;
+            left: 0.2rem;
+            right: 0.2rem;
+          }
+        }
+      }
+    }
+
+    .tab-navs-substitute {
+      height: 1.14rem;
+    }
+
+    .tab-conts {
+      padding: 0 0.3rem;
+
+      .tab-cont {
+        display: none;
+
+        &.active {
+          display: block;
+        }
+      }
+
+      .item {
+        .vux-1px-t;
+        min-height: 1.54rem;
+        padding: 0.2rem 0;
+        &:extend(.aicjcsb);
+
+        &:first-child:before {
+          display: none;
+        }
+
+        .left-hand {
+          flex: 1;
+          overflow: hidden;
+          &:extend(.jcc);
+          flex-direction: column;
+
+          .top-area {
+            font-size: 0.32rem;
+            color: #333333;
+            line-height: 0.42rem;
+          }
+
+          .bottom-area {
+            margin-top: 0.12rem;
+            font-size: 0.24rem;
+            color: #999999;
+          }
+        }
+
+        .right-hand {
+          flex-basis: 1.5rem;
+          text-align: right;
+          font-size: 0.32rem;
+          color: #333333;
+          font-weight: bold;
+        }
+      }
+
+      .no-more-data-tip {
+        margin-top: -0.2rem;
+      }
+    }
+
+    .whole-module-load {
+      padding-top: 2rem;
+      &:extend(.jccaic);
+
+      &:after {
+        content: '\200B';
+        width: 0.88rem;
+        height: 0.88rem;
+        background: transparent url('../../../static/svg/loading_microsoft.svg') no-repeat;
+        background-size: 100% auto;
+      }
+    }
+  }
+
+  .view-diy-footer {
+    height: 0;
+    overflow: hidden;
+  }
+}

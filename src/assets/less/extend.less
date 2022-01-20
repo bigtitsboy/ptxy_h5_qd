@@ -1,0 +1,139 @@
+// 相对定位
+.pr {
+  position: relative;
+}
+
+// 绝对定位
+.pa {
+  position: absolute;
+}
+
+// 固定定位
+.pf {
+  position: fixed;
+}
+
+// 左浮动
+.fl {
+  float: left;
+}
+
+// 右浮动
+.fr {
+  float: right;
+}
+
+// 清除浮动
+.clearfix {
+  &:after {
+    display: block;
+    content: '\200B';
+    height: 0;
+    clear: both;
+  }
+}
+
+// 隐藏（占据空间）
+.vh {
+  visibility: hidden;
+}
+
+// 隐藏（不占据空间）
+.dn {
+  display: none;
+}
+
+// 行元素
+.di {
+  display: inline;
+}
+
+// 块元素
+.db {
+  display: block;
+}
+
+// 行块元素
+.dib {
+  display: inline-block;
+}
+
+// 盒子布局
+.df {
+  display: flex;
+}
+
+// 水平居中对齐
+.jcc {
+  &:extend(.df);
+  justify-content: center;
+}
+
+// 水平右对齐
+.jcfe {
+  &:extend(.df);
+  justify-content: flex-end;
+}
+
+// 垂直居中对齐
+.aic {
+  &:extend(.df);
+  align-items: center;
+}
+
+// 垂直底对齐
+.aife {
+  &:extend(.df);
+  align-items: flex-end;
+}
+
+// 水平、垂直居中对齐
+.jccaic {
+  &:extend(.df);
+  justify-content: center;
+  align-items: center;
+}
+
+// 垂直居中并两端对齐
+.aicjcsb {
+  &:extend(.df);
+  align-items: center;
+  justify-content: space-between;
+}
+
+// 垂直底对齐并两端对齐
+.aifejcsb {
+  &:extend(.df);
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+// 超出显示省略号（单行）
+.ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// 硬件加速
+.cpu-3d {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000;
+}
+
+// 禁选文本
+.un-selectable {
+  user-select: none;
+}
+
+// 强制英文单词换行
+.line-feed {
+  word-break: break-all;
+}
+
+// 设置背景图
+.bg-image (@path) {
+  background: transparent url("../images/@{path}") no-repeat center center;
+  background-size: 100% auto;
+}

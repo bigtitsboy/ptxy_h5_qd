@@ -1,0 +1,51 @@
+.view-wrap.index-main {
+  //height: 100%;
+  //padding: 0 0.5rem;
+  position: relative;
+  display: flex;
+  height: 100%;
+  overflow: visible;
+  flex-wrap: wrap;
+  flex-direction: column;
+  flex: 1;
+
+  .topSwiper {
+    width: 100%;
+    background: #FFFFFF;
+    padding: 0.2rem 0.24rem 0 0.24rem;
+    box-sizing: border-box;
+
+    .swiper-container {
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+
+    .menus {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+
+      .menusItem {
+        margin-top: 0.3rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-width: calc(100% / 4);
+
+        .line1 {
+          background: orange;
+          height: 0.45rem;
+          width: 0.45rem;
+        }
+
+        .line2 {
+        }
+      }
+    }
+  }
+
+
+}

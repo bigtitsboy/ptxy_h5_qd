@@ -1,0 +1,296 @@
+.view-wrap.accountCoupon-main {
+  //   background: #fff;
+
+  .nav-wrap {
+    // &:extend(.jccaic);
+    height: 1rem;
+    &:extend(.pr);
+
+    .vux-cell-box,
+    .picked-nav-name {
+      &:extend(.pa);
+      left: 50%;
+      top: 0.1rem;
+      transform: translate(-50%, 0);
+      height: 0.8rem;
+      width: calc(60%);
+    }
+
+    .vux-cell-box {
+      opacity: 0;
+      z-index: 6;
+
+      .weui-cell__hd,
+      .weui-cell__ft {
+        display: none;
+      }
+
+      .vux-popup-picker-select {
+        height: 0.8rem;
+      }
+    }
+
+    .picked-nav-name {
+      z-index: 5;
+      &:extend(.jccaic);
+
+      .label {
+        font-size: 0.32rem;
+        color: #333;
+        margin-right: 0.12rem;
+      }
+
+      .icon {
+        width: 0.2rem;
+        height: 0.32rem;
+        .bg-image('/accountCoupon/more_picker_icon.png');
+      }
+    }
+  }
+
+  .tool-wrap {
+    height: 1rem;
+
+    .real-dom {
+      padding: 0 0.24rem;
+      height: 1rem;
+      &:extend(.aicjcsb);
+      background: #ddd;
+
+      &.module-fixed {
+        &:extend(.pf);
+        left: 0;
+        right: 0;
+        top: 0;
+        z-index: 5;
+      }
+
+      .left-hand {
+        height: calc(100%);
+        &:extend(.pr);
+        &:extend(.aic);
+        width: 2rem;
+      }
+
+      .right-hand {
+        color: #11b367;
+        font-size: 0.32rem;
+      }
+
+      .vux-cell-box {
+        &:extend(.pa);
+        left: 0;
+        right: 0;
+        opacity: 0;
+        z-index: 6;
+        &:extend(.aic);
+
+        .weui-cell__hd,
+        .weui-cell__ft {
+          display: none;
+        }
+
+        .vux-popup-picker-select {
+          height: 1rem;
+          width: 2rem;
+        }
+      }
+
+      .picked-type-name {
+        z-index: 5;
+        &:extend(.jccaic);
+
+        .label {
+          font-size: 0.32rem;
+          color: #333;
+          margin-right: 0.08rem;
+        }
+
+        .icon {
+          width: 0.24rem;
+          height: 0.32rem;
+          .bg-image('/accountCoupon/datatime_picker_icon.png');
+        }
+      }
+    }
+
+    .substitute {
+      height: 1rem;
+      background: transparent;
+    }
+  }
+
+  .cont-wrap {
+    padding: 0 0.24rem;
+
+    .item {
+      border-radius: 0.2rem;
+      margin-top: 0.2rem;
+      background: #fff;
+      padding: 0 0.2rem 0.1rem;
+
+      .top-hand {
+        height: 1rem;
+        &:extend(.aic);
+
+        .logo {
+          width: 0.6rem;
+          height: 0.6rem;
+          border-radius: 100%;
+          margin-right: 0.16rem;
+        }
+
+        .text {
+          font-size: 0.32rem;
+          color: #333;
+          font-weight: bold;
+        }
+      }
+
+      .bottom-hand {
+        background: #fdf6f0;
+        margin-bottom: 0.2rem;
+        border-radius: 0.16rem;
+        &:extend(.aicjcsb);
+        &:extend(.pr);
+        min-height: 1.6rem;
+        padding: 0.12rem 0;
+        box-sizing: border-box;
+
+        &.overdue {
+          filter: grayscale(100%);
+          filter: gray;
+          filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);
+        }
+      }
+
+      .left-area {
+        flex: 1;
+        overflow: hidden;
+        &:extend(.aic);
+        padding: 0 0.2rem 0 0;
+        box-sizing: border-box;
+      }
+
+      .left-side {
+        &:extend(.jccaic);
+        flex-basis: 1.6rem;
+        color: #ff3f12;
+        margin-right: 0.2rem;
+
+        .money {
+          font-size: 0.5rem;
+        }
+
+        .unit {
+          font-size: 0.24rem;
+          padding-top: 0.14rem;
+        }
+      }
+
+      .right-side {
+        flex: 1;
+        overflow: hidden;
+
+        .coupon-name {
+          font-size: 0.32rem;
+          color: #ff3f12;
+          font-weight: bold;
+          margin-bottom: 0.12rem;
+        }
+
+        .des {
+          font-size: 0.24rem;
+          color: #ff3f12;
+          line-height: 0.3rem;
+          margin-bottom: 0.04rem;
+        }
+
+        .last-time {
+          font-size: 0.24rem;
+          color: #999;
+          padding-bottom: 0.02rem;
+        }
+      }
+
+      .right-area {
+        flex-basis: 1.3rem;
+        &:extend(.aic);
+        justify-content: flex-end;
+        margin-right: 0.2rem;
+
+        &.used {
+          &:extend(.jccaic);
+          height: 1.28rem;
+          justify-content: flex-end;
+
+          &:after {
+            content: '\200B';
+            width: 1.28rem;
+            height: 1.28rem;
+            .bg-image('/accountCoupon/coupon_used_icon.png');
+          }
+        }
+
+        &.overdue {
+          &:extend(.jccaic);
+          height: 1.28rem;
+          justify-content: flex-end;
+
+          &:after {
+            content: '\200B';
+            width: 1.28rem;
+            height: 1.28rem;
+            .bg-image('/accountCoupon/coupon_overdue_icon.png');
+          }
+        }
+
+        a {
+          padding: 0 0.2rem;
+          font-size: 0.28rem;
+          color: #ff3f12;
+          height: 0.56rem;
+          &:extend(.jccaic);
+          .vux-1px;
+
+          &:before {
+            border-color: #ff3f12 !important;
+            border-radius: 0.56rem;
+            box-sizing: border-box;
+          }
+        }
+      }
+
+      .type-state {
+        &:extend(.pa);
+        top: 0;
+        left: 0;
+        background: #fae5e5;
+        padding: 0 0.2rem;
+        height: 0.36rem;
+        color: #ff3f12;
+        font-size: 0.2rem;
+        &:extend(.jccaic);
+        border-radius: 0.2rem 0 0.18rem 0;
+      }
+    }
+  }
+
+  .whole-module-load {
+    padding-top: 2rem;
+    &:extend(.jccaic);
+
+    &:after {
+      content: '\200B';
+      width: 0.88rem;
+      height: 0.88rem;
+      background: transparent url('../../../static/svg/loading_microsoft.svg') no-repeat;
+      background-size: 100% auto;
+    }
+  }
+
+  .view-diy-footer {
+    height: 0;
+    overflow: hidden;
+  }
+}

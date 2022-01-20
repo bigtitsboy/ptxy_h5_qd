@@ -1,0 +1,291 @@
+@themeColor: #3388ff;
+
+html,
+body {
+  height: calc(100%);
+}
+
+#app {
+  font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-overflow-scrolling: touch;
+  min-width: 320px;
+  max-width: 540px;
+  margin: 0 auto;
+  height: calc(100%);
+  font-size: .28rem;
+  background: #f5f5f5;
+}
+
+// vue自带动画
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity .5s;
+}
+
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.slide-fade-enter-active {
+  transition: all .2s ease;
+}
+
+.slide-fade-leave-active {
+  transition: all .2s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+
+.slide-fade-enter,
+.slide-fade-leave-to {
+  transform: translateX(100vw);
+  opacity: 0;
+}
+
+.bounce-enter-active {
+  animation: bounce-in .5s;
+}
+
+.bounce-leave-active {
+  animation: bounce-in .5s reverse;
+}
+
+@keyframes bounce-in {
+  0% {
+    transform: scale(0);
+  }
+
+  50% {
+    transform: scale(1.5);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+// 页面主体骨架
+.view-wrap {
+  height: calc(100%);
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+// 1px边框
+.vux-1px,
+.vux-1px-t,
+.vux-1px-r,
+.vux-1px-b,
+.vux-1px-l {
+
+  &:before,
+  &:after {
+    border-color: #dddddd !important;
+  }
+}
+
+// loading
+.vux-loading {
+  .weui-mask_transparent {
+    background-color: transparent;
+  }
+
+  .weui-toast {
+    width: 1.86rem;
+    height: 1.64rem;
+    min-height: 1.64rem !important;
+    top: 50%;
+    margin: 0;
+    transform: translate(-50%, -50%);
+    border-radius: .1rem;
+    background-color: rgba(0, 0, 0, .5);
+
+    .weui-loading {
+      width: .88rem;
+      height: .88rem;
+      margin: .38rem 0 0 0;
+      background: transparent url('../../../static/svg/loading_microsoft.svg') no-repeat;
+      background-size: 100% auto;
+      animation: none;
+    }
+  }
+}
+
+// toast
+.vux-toast {
+  .weui-toast {
+    top: 50%;
+    width: auto !important;
+    max-width: 3.6rem;
+    min-width: 1.8rem;
+    transform: translate(-50%, -50%);
+
+    .weui-toast__content {
+      padding: .15rem;
+      border-radius: .14rem;
+      font-size: .28rem;
+      line-height: .4rem;
+    }
+  }
+}
+
+// alert
+.vux-alert {
+  .weui-mask {
+    background: rgba(0, 0, 0, 0.3);
+  }
+
+  .weui-dialog {
+    width: 5.4rem;
+    // background-color: #e8e8e8;
+    border-radius: .28rem;
+
+    .weui-dialog__hd {
+      padding: .43rem 0 .06rem 0;
+
+      .weui-dialog__title {
+        display: inline;
+        vertical-align: top;
+        font-size: .34rem;
+        color: #000000;
+        line-height: 1;
+      }
+    }
+
+    .weui-dialog__bd {
+      padding-bottom: .36rem;
+      font-size: .28rem;
+      color: #000000;
+      line-height: .36rem;
+      min-height: 0;
+      text-align: left;
+    }
+
+    .weui-dialog__ft {
+      font-size: .34rem;
+
+      a {
+        line-height: .88rem;
+        color: @themeColor;
+      }
+
+      &:after {
+        border-color: #bcbdbe;
+      }
+    }
+  }
+}
+
+// 弹窗
+.vux-popup-picker-container .vux-popup-header div {
+  line-height: 44px;
+
+  // &.vux-popup-header-right {
+  //   color: @themeColor;
+  // }
+}
+
+// 确认窗
+.vux-confirm {
+  .weui-dialog {
+    border-radius: 0.1rem;
+    max-width: 600px;
+  }
+}
+
+// cell边距重置
+.vux-cell-box .weui-cell {
+  padding: 0;
+}
+
+// 地址picker选择器
+.vux-area-box {
+  padding-right: 0.14rem !important;
+
+  .vux-cell-box {
+    display: block;
+  }
+
+  .weui-cell__hd,
+  .weui-cell__ft {
+    display: none;
+  }
+
+  .vux-cell-primary {
+    font-size: 0.32rem;
+    line-height: 1.5;
+    color: #202020;
+  }
+
+  .vux-popup-picker-placeholder {
+    color: #bababa;
+  }
+}
+
+// 日期选择器
+.dp-container {
+  // .dp-item.dp-left.vux-datetime-cancel {
+  //   height: 0.88rem;
+  //   line-height: 0.88rem;
+  //   font-size: 0.32rem;
+  //   color: #666666;
+  // }
+
+  // .dp-item.dp-right.vux-datetime-confirm {
+  //   height: 0.88rem;
+  //   line-height: 0.88rem;
+  //   font-size: 0.32rem;
+  //   color: #1ab398;
+  // }
+
+  // .dp-item.vux-datetime-clear {
+  //   height: 0.88rem;
+  //   line-height: 0.88rem;
+  //   font-size: 0.32rem;
+  // }
+}
+
+
+.no-more-data-tip {
+  font-size: 0.24rem;
+  &:extend(.jccaic);
+  color: #999;
+  height: 0.64rem;
+}
+
+.module-no-data-tip {
+  &:extend(.jccaic);
+  flex-direction: column;
+  padding-top: 1rem;
+
+  &:before {
+    content: '\200B';
+    width: 4rem;
+    height: 3rem;
+    background: transparent url('../../../static/images/module_no_cont_placeholder.png') no-repeat center center;
+    background-size: 100% auto;
+  }
+
+  .text {
+    padding-top: 0.2rem;
+    color: #999999;
+    font-size: 0.28rem;
+  }
+}
+
+.load-more-data-tip {
+  height: 0.64rem;
+  font-size: 0.24rem;
+  &:extend(.jccaic);
+  color: #999;
+
+  &:before {
+    margin-right: 0.1rem;
+    content: '\200B';
+    width: 0.28rem;
+    height: 0.4rem;
+    background: transparent url('../../../static/svg/loading_more.svg') no-repeat center center;
+    background-size: 100% auto;
+  }
+}

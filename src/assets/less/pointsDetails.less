@@ -1,0 +1,186 @@
+.view-wrap.pointsDetails-main {
+
+  .nav-wrap {
+    // &:extend(.jccaic);
+    height: 1rem;
+    &:extend(.pr);
+
+    .vux-cell-box,
+    .picked-nav-name {
+      &:extend(.pa);
+      left: 50%;
+      top: 0.1rem;
+      transform: translate(-50%, 0);
+      height: 0.8rem;
+      width: calc(60%);
+    }
+
+    .vux-cell-box {
+      opacity: 0;
+      z-index: 6;
+
+      .weui-cell__hd,
+      .weui-cell__ft {
+        display: none;
+      }
+
+      .vux-popup-picker-select {
+        height: 0.8rem;
+      }
+    }
+
+    .picked-nav-name {
+      z-index: 5;
+      &:extend(.jccaic);
+
+      .label {
+        font-size: 0.32rem;
+        color: #333;
+        margin-right: 0.12rem;
+      }
+
+      .icon {
+        width: 0.2rem;
+        height: 0.32rem;
+        .bg-image('/pointsDetails/more_picker_icon.png');
+      }
+    }
+  }
+
+  .tool-wrap {
+    height: 1rem;
+
+    .real-dom {
+      padding: 0 0.24rem;
+      height: 1rem;
+      &:extend(.aicjcsb);
+      background: #ddd;
+
+      &.module-fixed {
+        &:extend(.pf);
+        max-width: 540px;
+        left: 50%;
+        width: calc(100%);
+        top: 0;
+        transform: translateX(-50%);
+        z-index: 5;
+        box-sizing: border-box;
+      }
+
+      .data-range {
+        height: 1rem;
+        &:extend(.df);
+
+        .vux-datetime {
+          height: 1rem;
+          &:extend(.aic);
+          &:extend(.pr);
+          padding-right: 0.32rem;
+
+          &:after {
+            &:extend(.pa);
+            right: 0;
+            content: '\200B';
+            width: 0.24rem;
+            height: 0.32rem;
+            .bg-image('/pointsDetails/datatime_picker_icon.png');
+          }
+
+          .vux-cell-value {
+            font-size: 0.32rem;
+            color: #666;
+          }
+        }
+      }
+
+      .statistics {
+        &:extend(.df);
+        font-size: 0.28rem;
+        color: #666;
+
+        span {
+          margin-left: 0.12rem;
+        }
+      }
+    }
+
+    .substitute {
+      height: 1rem;
+      background: transparent;
+    }
+  }
+
+  .cont-wrap {
+    background: #fff;
+    padding: 0 0.24rem;
+
+    .item {
+      &:extend(.aicjcsb);
+      .vux-1px-t;
+      min-height: 1.34rem;
+
+      &:first-child:before {
+        display: none;
+      }
+
+      .left-hand {
+        flex: 1;
+        overflow: hidden;
+        padding: 0.2rem 0;
+
+        &:extend(.jcc);
+        flex-direction: column;
+
+        .top-area {
+          color: #333333;
+          font-size: 0.32rem;
+          line-height: 0.44rem;
+        }
+
+        .bottom-area {
+          color: #999999;
+          font-size: 0.24rem;
+          margin-top: 0.1rem;
+        }
+      }
+
+      .right-hand {
+        flex-basis: 1.6rem;
+        &:extend(.df);
+        justify-content: flex-end;
+        color: #333333;
+        font-size: 0.32rem;
+
+        &.add {
+          color: #11b367;
+        }
+
+        &.reduce {
+          color: #e84b08;
+        }
+
+        &.invalid {
+          color: #999;
+        }
+      }
+    }
+  }
+
+  .whole-module-load {
+    padding-top: 2rem;
+    &:extend(.jccaic);
+
+    &:after {
+      content: '\200B';
+      width: 0.88rem;
+      height: 0.88rem;
+      background: transparent url('../../../static/svg/loading_microsoft.svg') no-repeat;
+      background-size: 100% auto;
+    }
+  }
+
+  .view-diy-footer {
+    height: 0;
+    overflow: hidden;
+  }
+}
