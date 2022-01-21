@@ -13,6 +13,7 @@ import pointsDetails from '@/views/pointsDetails'
 import accountCoupon from '@/views/accountCoupon'
 import secondhandGoods from '../views/secondhandGoods/secondhandGoods'
 import index from '../views/index'
+import log_on from "../views/info/log_on";
 
 Vue.use(Router);
 
@@ -91,6 +92,14 @@ const routerList = [{
     component: index,
     meta: {
       title: '首页'
+    }
+  },
+  {
+    path: '/login',
+    name: 'log_on',
+    component: log_on,
+    meta: {
+      title: '登录页'
     }
   }
 ];

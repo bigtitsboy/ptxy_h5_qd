@@ -430,12 +430,26 @@ const func = {
         'Content-Type': 'multipart/form-data'
       })
     } else {
-      Object.assign(headers, (conf.type === 'POST' ? {
-        'X-Requested-With': 'XMLHttpRequest',
-        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
-      } : {
-        'X-Requested-With': 'XMLHttpRequest'
-      }))
+
+      if (conf.flag === 1) {
+        Object.assign(headers, {
+          'X-Requested-With': 'XMLHttpRequest',
+          'Content-Type': 'application/json',
+          // 'appToken': appToken
+        })
+      } else {
+        // console.log("123");
+        // console.log((param instanceof FormData) ? param : ((conf.type === 'POST' && conf.flag === 1) ? JSON.stringify(param) : (((conf.type === 'POST' || conf.type === 'GET') && conf.flag === 2) ? qs.stringify(param) : param)));
+        Object.assign(headers, (conf.type === 'POST' ? {
+          'X-Requested-With': 'XMLHttpRequest',
+          'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+          // 'appToken': appToken
+        } : {
+          'X-Requested-With': 'XMLHttpRequest',
+          'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+          // 'appToken': appToken
+        }))
+      }
 
       // // 携带token
       // let ls = window.localStorage;
@@ -458,7 +472,7 @@ const func = {
       baseURL: $define.AXIOSBASEURL,
       timeout: $define.AXIOSTIMEOUT,
       url: url,
-      [conf.type.toUpperCase() === 'POST' ? 'data' : 'params']: (param instanceof FormData) ? param : (conf.type.toUpperCase() === 'POST' ? qs.stringify(param) : param),
+      [conf.type.toUpperCase() === 'POST' ? 'data' : 'params']:  (param instanceof FormData) ? param : ((conf.type === 'POST' && conf.flag === 1) ? JSON.stringify(param) : (((conf.type === 'POST' || conf.type === 'GET') && conf.flag === 2) ? qs.stringify(param) : param)),
       // data: (param instanceof FormData) ? param : (conf.type === 'POST' ? qs.stringify(param) : param),
       // params: (param instanceof FormData) ? param : (conf.type === 'POST' ? qs.stringify(param) : param),
       openLoad: conf.openLoad,

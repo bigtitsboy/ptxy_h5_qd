@@ -1,0 +1,212 @@
+.view-wrap.log_on-main {
+  ////height: 100%;
+  ////padding: 0 0.5rem;
+  //position: relative;
+  //display: flex;
+  //height: 100%;
+  ////overflow: visible;
+  //flex-wrap: wrap;
+  //flex-direction: column;
+  //flex: 1;
+  //overflow: hidden;
+  //padding: 0 0.8rem;
+  //background: #FFFFFF;
+  padding: 0 0.8rem;
+  background: #fff;
+
+  .welcome-module {
+    padding: 1.4rem 0 1.3rem;
+
+    .msg {
+      color: #202020;
+      font-size: 0.44rem;
+      font-weight: bold;
+      line-height: 0.66rem;
+    }
+
+    .des {
+      margin-top: 0.08rem;
+      color: #999999;
+      font-size: 0.32rem;
+      line-height: 0.66rem;
+    }
+  }
+
+  .tab-nav {
+    &:extend(.jccaic);
+    text-align: center;
+    color: #202020;
+    font-size: .36rem;
+    &:extend(.un-selectable);
+
+    li {
+      width: 50%;
+      .vux-1px-b;
+
+      &.selected span {
+        &:extend(.dib);
+        color: #0EB985;
+        &:extend(.pr);
+        width: calc(100%);
+
+        &:after {
+          content: '\200B';
+          &:extend(.pa);
+          bottom: 0;
+          left: 0;
+          right: 0;
+          height: .06rem;
+          background-color: #0EB985;
+          z-index: 5;
+        }
+      }
+
+      span {
+        line-height: 1.04rem;
+      }
+    }
+  }
+
+  .tab-cont {
+    .cell {
+      .vux-1px-b;
+      height: 1.1rem;
+      &:extend(.aic);
+      padding-right: .48rem;
+
+      em {
+        width: .6rem;
+        height: 100%;
+        &:extend(.jccaic);
+
+        &:after {
+          content: '\200B';
+        }
+      }
+
+      input[type=text],
+      input[type=tel],
+      input[type=password] {
+        line-height: 1.5;
+        font-size: .32rem;
+        flex: 1;
+      }
+
+      strong {
+        &:extend(.pa);
+        right: 0;
+        top: 0;
+        width: .48rem;
+        height: 100%;
+        &:extend(.jccaic);
+
+        &:after {
+          content: '\200B';
+        }
+      }
+    }
+
+    .iphone {
+      em:after {
+        width: .28rem;
+        height: .4rem;
+        background: transparent url('../../images/user_account/iphone.png') 0 center no-repeat;
+        background-size: 100% auto;
+      }
+
+      strong:after {
+        width: .36rem;
+        height: .4rem;
+        background: transparent url('../../images/user_account/delete.png') 0 center no-repeat;
+        background-size: 100% auto;
+      }
+    }
+
+    .password {
+      em:after {
+        width: .3rem;
+        height: .4rem;
+        background: transparent url('../../images/user_account/password.png') 0 center no-repeat;
+        background-size: 100% auto;
+      }
+
+      strong.invisible:after {
+        width: .38rem;
+        height: .2rem;
+        background: transparent url('../../images/user_account/password_invisible.png') 0 center no-repeat;
+        background-size: 100% auto;
+      }
+
+      strong.visible:after {
+        width: .36rem;
+        height: .32rem;
+        background: transparent url('../../images/user_account/password_visual.png') 0 center no-repeat;
+        background-size: 100% auto;
+      }
+    }
+
+    .message {
+      padding-right: 0;
+
+      em:after {
+        width: .32rem;
+        height: .36rem;
+        background: transparent url('../../images/user_account/message.png') 0 center no-repeat;
+        background-size: 100% auto;
+      }
+
+      input[type=tel] {
+        flex: initial;
+        width: 3.5rem;
+      }
+
+      .get-message-btn {
+        flex: 1;
+        height: 100%;
+        &:extend(.aic);
+        justify-content: flex-end;
+        color: #0EB985;
+
+        &.disabled {
+          color: #999999;
+        }
+
+        span {
+          padding: 8px 6px;
+          font-size: .28rem;
+          line-height: 1.5;
+        }
+      }
+    }
+  }
+
+  .login-btn {
+    margin-top: .6rem;
+    &:extend(.df);
+
+    input {
+      flex: 1;
+      line-height: .9rem;
+      background-color: #0EB985;
+      color: #ffffff;
+      font-size: .36rem;
+      border-radius: .45rem;
+
+      &.disabled {
+        background-color: rgba(14, 185, 133, .5);
+      }
+    }
+  }
+
+  .subline {
+    &:extend(.aicjcsb);
+    padding: 0 0.32rem;
+    font-size: .28rem;
+    margin-top: .16rem;
+
+    a {
+      color: #333333;
+      line-height: 2;
+    }
+  }
+}

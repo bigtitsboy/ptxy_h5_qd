@@ -10,8 +10,9 @@
       <div v-if="activePath==='index'" class="line2Active">首页</div>
       <div v-else class="line2">首页</div>
     </div>
-    <div class="bottomBarItem center">
-      <img :src="require('../../assets/images/index/二手回收.png')" alt="">
+    <div class="bottomBarItem center" @click="showAddMenu">
+      <img v-show="!AddMenuShow" :src="require('../../assets/images/index/二手回收.png')" alt="">
+      <img v-show="AddMenuShow" :src="require('../../assets/images/index/操作-关闭.png')" alt="">
     </div>
     <div class="bottomBarItem" @click="goPath('/userCenter')">
       <div class="line1">
@@ -27,10 +28,18 @@
 <script>
 export default {
   name: "indexBottomBar",
+  data: function () {
+    return {
+      AddMenuShow: false
+    }
+  },
   props: ['activePath'],
   methods: {
     goPath(val) {
       this.$router.push(val)
+    },
+    showAddMenu() {
+      this.AddMenuShow = !this.AddMenuShow
     }
   }
 }
