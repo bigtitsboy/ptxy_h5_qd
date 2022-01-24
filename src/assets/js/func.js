@@ -425,9 +425,12 @@ const func = {
     }, conf)
 
     let headers = {}
+    let appToken = localStorage.getItem('appToken')
     if (param instanceof FormData) {
       Object.assign(headers, {
-        'Content-Type': 'multipart/form-data'
+        'Content-Type': 'multipart/form-data',
+        'appToken': appToken,
+        'Authorization': "Bearer " + appToken
       })
     } else {
 
@@ -435,7 +438,7 @@ const func = {
         Object.assign(headers, {
           'X-Requested-With': 'XMLHttpRequest',
           'Content-Type': 'application/json',
-          // 'appToken': appToken
+          'appToken': appToken
         })
       } else {
         // console.log("123");
@@ -443,11 +446,13 @@ const func = {
         Object.assign(headers, (conf.type === 'POST' ? {
           'X-Requested-With': 'XMLHttpRequest',
           'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
-          // 'appToken': appToken
+          'appToken': appToken,
+          // 'Authorization': "Bearer " + appToken
         } : {
           'X-Requested-With': 'XMLHttpRequest',
           'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
-          // 'appToken': appToken
+          'appToken': appToken,
+          // 'Authorization': "Bearer " + appToken
         }))
       }
 

@@ -56,6 +56,86 @@
         }
 
       }
+
+
+      .uploadImgBottomBar {
+        display: flex;
+        flex-wrap: wrap;
+        //justify-content: space-between;
+
+        .uploadImgListItem {
+          display: inline-block;
+          position: relative;
+
+          img {
+            border-radius: 10px;
+            height: 2rem;
+            width: 2rem;
+            margin: 0.2rem 0.1rem 0.2rem 0;
+          }
+
+          .closeIco {
+            position: absolute;
+            top: 0.1rem;
+            right: -0.05rem;
+            height: 0.2rem;
+            width: 0.2rem;
+
+            img {
+              height: 100%;
+              width: 100%;
+              margin: 0;
+            }
+          }
+        }
+
+        .uploadImgLabel {
+          height: 2rem;
+          width: 2rem;
+          display: flex;
+          background: #f7f7f7;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          border-radius: 10px;
+          margin: 0.2rem 0.1rem 0.2rem 0;
+
+          .line1 {
+            font-size: 0.28rem;
+            color: #cbcbcb;
+          }
+        }
+
+      }
+    }
+
+    .goodPrice {
+      display: flex;
+
+      input {
+        color: red;
+      }
+
+      .left {
+        line-height: inherit;
+        display: flex;
+        flex-direction: row;
+        font-weight: 600;
+        align-items: center;
+
+        img {
+          height: 0.5rem;
+          width: 0.5rem;
+          margin-right: 0.2rem;
+        }
+      }
+
+      .right {
+      }
+
+      input::placeholder {
+        color: red;
+      }
     }
   }
 }
