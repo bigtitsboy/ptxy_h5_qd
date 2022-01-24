@@ -6,7 +6,7 @@
   >
     <div class="outBox" ref="searchoutside">
       <div class="searchoutside">
-      <span @click="goPath('/index')">
+      <span style="width: 1rem" @click="goPath('/index')">
         <img style="height: 0.6rem;" :src="require('../../assets/images/chevron-back-outline.svg')" alt="">
       </span>
         <input class="search" @keypress.enter="" type="search" v-model="searchValue" placeholder="搜索">
@@ -66,7 +66,7 @@ export default {
         let evenHeight = null
         for (let key = 0; key < this.$refs.scrollBody.children.length; key++) {
           this.$refs.scrollBody.children[key].style.marginBottom = 0.2 + 'rem'
-          this.$refs.scrollBody.children[key].style.width = this.bodyWidth / 2 - 0.2 * parseInt(document.documentElement.style.fontSize) + 'px'
+          this.$refs.scrollBody.children[key].style.width = this.bodyWidth / 2 - 0.25 * parseInt(document.documentElement.style.fontSize) + 'px'
           if (key % 2 === 0 && key !== 0) {
             evenHeight = this.$refs.scrollBody.children[key - 2].clientHeight + (this.$refs.scrollBody.children[key - 2].style.marginTop !== '' ? parseInt(this.$refs.scrollBody.children[key - 2].style.marginTop) : 0)
             oddHeight = this.$refs.scrollBody.children[key - 1].clientHeight + (this.$refs.scrollBody.children[key - 1].style.marginTop !== '' ? parseInt(this.$refs.scrollBody.children[key - 1].style.marginTop) : 0)

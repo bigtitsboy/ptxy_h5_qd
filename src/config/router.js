@@ -14,6 +14,7 @@ import accountCoupon from '@/views/accountCoupon'
 import secondhandGoods from '../views/secondhandGoods/secondhandGoods'
 import index from '../views/index'
 import log_on from "../views/info/log_on";
+import addGoods from "../views/secondhandGoods/addGoods";
 
 Vue.use(Router);
 
@@ -100,6 +101,14 @@ const routerList = [{
     component: log_on,
     meta: {
       title: '登录页'
+    }
+  },
+  {
+    path: '/addGoods',
+    name: 'addGoods',
+    component: addGoods,
+    meta: {
+      title: '发布商品'
     }
   }
 ];
