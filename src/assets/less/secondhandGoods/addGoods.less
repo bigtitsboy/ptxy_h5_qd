@@ -2,16 +2,20 @@
   //height: 100%;
   position: relative;
   display: flex;
-  overflow: visible;
-  flex-wrap: wrap;
+  //overflow: visible;
+  //flex-wrap: wrap;
   flex-direction: column;
-  height: 100%;
+  height: calc(100%);
+  overflow: auto;
   padding: 0 0.2rem;
 
+  &::-webkit-scrollbar {
+    display: none;
+  }
 
   .outBox {
     display: flex;
-    flex: 1;
+    //flex: 1;
     height: 100%;
     padding: 0 0.3rem;
     flex-direction: column;
@@ -55,6 +59,17 @@
           display: none;
         }
 
+
+        &:empty::before {
+          content: '描述商品详情';
+          color: #bbb;
+        }
+
+        /*不一样的地方*/
+
+        &:focus {
+          content: none;
+        }
       }
 
 
@@ -112,6 +127,21 @@
     .goodPrice {
       display: flex;
 
+      .sortPart {
+        padding: 10px 15px;
+        display: flex;
+        flex-direction: row;
+        font-size: 0.34rem;
+        font-weight: bold;
+
+        img {
+          margin-right: 0.2rem;
+          height: 0.5rem;
+          width: 0.5rem;
+        }
+      }
+
+
       input {
         color: red;
       }
@@ -136,6 +166,43 @@
       input::placeholder {
         color: red;
       }
+
+      .goodStatue {
+        align-items: center;
+        justify-content: space-between;
+        display: flex;
+        flex-direction: row;
+        padding: 10px 15px;
+
+        .left {
+          display: flex;
+          flex-direction: row;
+          font-size: 0.34rem;
+          font-weight: bold;
+
+          img {
+            margin-right: 0.2rem;
+            height: 0.5rem;
+            width: 0.5rem;
+          }
+        }
+
+        .right {
+          .demo1-item {
+            border: 1px solid #ececec;
+            padding: 5px 15px;
+          }
+
+          .demo1-item-selected {
+            border: 1px solid green;
+          }
+        }
+
+      }
+
     }
+
+
   }
+
 }

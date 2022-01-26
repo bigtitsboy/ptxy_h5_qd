@@ -438,7 +438,8 @@ const func = {
         Object.assign(headers, {
           'X-Requested-With': 'XMLHttpRequest',
           'Content-Type': 'application/json',
-          'appToken': appToken
+          'appToken': appToken,
+          'Authorization': "Bearer " + appToken
         })
       } else {
         // console.log("123");
@@ -447,12 +448,12 @@ const func = {
           'X-Requested-With': 'XMLHttpRequest',
           'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
           'appToken': appToken,
-          // 'Authorization': "Bearer " + appToken
+          'Authorization': "Bearer " + appToken
         } : {
           'X-Requested-With': 'XMLHttpRequest',
           'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
           'appToken': appToken,
-          // 'Authorization': "Bearer " + appToken
+          'Authorization': "Bearer " + appToken
         }))
       }
 

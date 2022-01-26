@@ -12,7 +12,7 @@ Vue.use(WechatPlugin)
 import ReturnTop from './components/ReturnTop/'
 
 Vue.use(ReturnTop);
-
+import 'animate.css';
 
 import md5 from 'js-md5';
 
