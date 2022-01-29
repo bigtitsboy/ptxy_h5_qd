@@ -54,8 +54,9 @@
           </div>
         </div>
         <x-input
+          class="priceInput"
           @on-focus="priceFocus"
-          :show-clear="false" :max="13" v-model="goodPrice"
+          :show-clear="false" v-model="goodPrice"
           placeholder="0.00"
           placeholder-align="right"
           text-align="right">
@@ -65,9 +66,21 @@
           </div>
           <div slot="right">元</div>
         </x-input>
+        <x-input
+          mask="999 9999 9999"
+          style="color: #202020"
+          :show-clear="false" v-model="phonenumber"
+          placeholder-align="right"
+          text-align="right">
+          <div slot="label" class="left">
+            <img :src="require('../../assets/images/手机.png')" alt="">
+            <div>联系方式</div>
+          </div>
+        </x-input>
       </group>
     </div>
-    <user-key-board ref="addGoods_Keyboard"></user-key-board>
+    <user-key-board @delkeyboarditem="delKeyBoard" :inputTxtLength="FinputTxtLength" @clickboard="clickKeyBoard"
+                    ref="addGoods_Keyboard"></user-key-board>
   </main>
 </template>
 
@@ -80,18 +93,42 @@ export default {
   data: function () {
     return {
       axiosed: true,
-      goodsDetail: '',
+      goodsDetail: '', //详情
       goodsDetailRows: 5,
-      uploadImgList: [],
-      goodPrice: null,
+      uploadImgList: [], // 上传图片list
+      goodPrice: '', //价格
       sortList: [],
-      checkSort: [],
-      goodStatue: '',
-      goodTitle: '',
-      showKeyboard: false
+      checkSort: [], //商品分类
+      goodStatue: '', //新旧程度
+      goodTitle: '', // 标题
+      showKeyboard: false,
+      FinputTxtLength: 0,
+      phonenumber: '',//联系电话
+      form: {
+        goodsName: null,
+        goodsContent: null,
+        goodsPrice: null,
+        categoryId: null,
+        phonenumber: null,
+        imageList: [],
+        remark: null
+      }
     }
   },
   methods: {
+    clickKeyBoard(item) {
+      this.FinputTxtLength = (this.goodPrice.length)
+      this.goodPrice += item.toString()
+      // console.log(item)
+    },
+    delKeyBoard() {
+      if (this.goodPrice.length !== 0) {
+        this.goodPrice = (this.goodPrice.slice(0, -1))
+      }
+      this.FinputTxtLength = (this.goodPrice.length)
+      // this.goodPrice += item.toString()
+      // console.log(item)
+    },
     bindDivValue(e) {
       this.goodsDetail = e.target.innerText
     },
@@ -114,6 +151,21 @@ export default {
         , 1)
     },
     addGood() {
+      this.form = {
+        goodsName: this.goodTitle,
+        goodsContent: this.goodsDetail,
+        goodsPrice: this.goodPrice,
+        categoryId: this.checkSort[0],
+        phonenumber: this.phonenumber,
+        imageList: this.uploadImgList,
+        remark: this.goodStatue
+      }
+      this.$func.axios(this.$api.addSecondhandGoods, this.form, {
+        type: 'POST',
+        openLoad: true,
+        closeLoad: true,
+        flag: 1
+      })
     },
     priceFocus() {
       this.$refs.addGoods_Keyboard.showKeyboardInsideShow()
