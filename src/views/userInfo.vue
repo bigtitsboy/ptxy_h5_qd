@@ -43,6 +43,12 @@
         <span class="value">无</span>
       </div>
     </div>
+    <div class="cell-wrap">
+      <div class="cell" style="text-align: center;justify-content: center;color: red;font-weight: bolder"
+           @click="loginOut">
+        退出
+      </div>
+    </div>
     <!-- 模板内容结束 -->
   </main>
 </template>
@@ -108,6 +114,19 @@ export default {
         console.log(e.target.result); // base64
       };
     },
+    loginOut() {
+      this.$func.axios(this.$api.loginOut, {}, {
+        type: 'POST',
+        openLoad: true,
+        closeLoad: true
+      }).then(res => {
+        if (res.code == 200) {
+          this.$func.openToast('退出成功')
+          localStorage.removeItem('appToken')
+          this.$router.replace('/index')
+        }
+      })
+    }
   },
 };
 </script>

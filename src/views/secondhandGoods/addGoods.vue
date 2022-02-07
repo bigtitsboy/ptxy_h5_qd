@@ -201,6 +201,14 @@ export default {
       openLoad: true,
       closeLoad: true
     }).then(res => {
+      if (res.code == 401) {
+        this.$func.openToast('登录异常，请重新登陆')
+        this.$router.push({
+          path: '/login', query: {
+            surl: this.$route.path
+          }
+        })
+      }
       res.rows.forEach(x => {
         var obj = {}
         obj.name = x.categoryName

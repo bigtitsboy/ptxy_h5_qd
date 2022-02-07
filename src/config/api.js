@@ -4,5 +4,7 @@ export default {
   phonePwdLogin: '/api/pwd/login',
   uploadUrl: '/common/upload',
   getSortList: '/goods/goodsCategory/list',
-  addSecondhandGoods:'/goods/secondhandGoods'
+  addSecondhandGoods: '/goods/secondhandGoods',
+  loginOut: '/logout',
+  getUserInfo: '/api/getInfo'
 }

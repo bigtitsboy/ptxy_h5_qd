@@ -49,32 +49,32 @@
             </router-link>
           </div>
         </div>
-        <div class="digital-assets-wrap">
-          <div class="col">
-            <router-link to="/accountBalance">
-              <em class="value">12.00</em>
-              <strong class="label">余额</strong>
-            </router-link>
-          </div>
-          <div class="col">
-            <router-link to="/accountRedPacket">
-              <em class="value">12.00</em>
-              <strong class="label">红包</strong>
-            </router-link>
-          </div>
-          <div class="col">
-            <router-link to="/accountPoints">
-              <em class="value">12</em>
-              <strong class="label">积分</strong>
-            </router-link>
-          </div>
-          <div class="col">
-            <router-link to="/accountCoupon">
-              <em class="value">5</em>
-              <strong class="label">优惠券</strong>
-            </router-link>
-          </div>
-        </div>
+<!--        <div class="digital-assets-wrap">-->
+<!--          <div class="col">-->
+<!--            <router-link to="/accountBalance">-->
+<!--              <em class="value">12.00</em>-->
+<!--              <strong class="label">余额</strong>-->
+<!--            </router-link>-->
+<!--          </div>-->
+<!--          <div class="col">-->
+<!--            <router-link to="/accountRedPacket">-->
+<!--              <em class="value">12.00</em>-->
+<!--              <strong class="label">红包</strong>-->
+<!--            </router-link>-->
+<!--          </div>-->
+<!--          <div class="col">-->
+<!--            <router-link to="/accountPoints">-->
+<!--              <em class="value">12</em>-->
+<!--              <strong class="label">积分</strong>-->
+<!--            </router-link>-->
+<!--          </div>-->
+<!--          <div class="col">-->
+<!--            <router-link to="/accountCoupon">-->
+<!--              <em class="value">5</em>-->
+<!--              <strong class="label">优惠券</strong>-->
+<!--            </router-link>-->
+<!--          </div>-->
+<!--        </div>-->
       </div>
       <div class="recommend-friend-wrap">
         <div class="left-hand">
@@ -175,6 +175,20 @@ export default {
     };
   },
   created() {
+    this.$func.axios(this.$api.getUserInfo, {}, {
+      type: 'Get',
+      openLoad: true,
+      closeLoad: true
+    }).then(res => {
+      if(res.code == 401){
+        this.$func.openToast('登录异常，请重新登陆')
+        this.$router.push({
+          path: '/login', query: {
+            surl: this.$route.path
+          }
+        })
+      }
+    })
     // if (this.$define.ROOT) {
     //   this.axiosed = true;
     // }
