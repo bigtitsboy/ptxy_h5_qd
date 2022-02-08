@@ -1,0 +1,145 @@
+@import '~vux/src/styles/1px.less';
+
+.view-wrap.shopGoods-main {
+  //height: 100%;
+  position: relative;
+  display: flex;
+  background: #FFFFFF;
+  //overflow: visible;
+  //flex-wrap: wrap;
+  flex-direction: column;
+  height: calc(100%);
+  overflow: auto;
+  //padding: 0 0.2rem;
+
+  .mainBody {
+    height: calc(100% - 1.4rem);
+    display: flex;
+    flex-direction: column;
+
+    .lineHead {
+      height: 0.85rem;
+      align-items: center;
+      padding: 0.2rem;
+      display: flex;
+      flex-direction: row;
+
+      .left {
+        font-weight: bolder;
+        font-size: 0.5rem;
+      }
+
+      input::-webkit-search-cancel-button {
+        display: none;
+      }
+
+      .rightSearch {
+        text-indent: 0.8rem;
+        flex: 1;
+        height: 0.7rem;
+        margin-left: 0.3rem;
+        border-radius: 99999px;
+        background: rgb(240, 240, 240);
+        color: #999999;
+        font-size: 0.3rem;
+      }
+    }
+
+    .mainScrollBody {
+      height: calc(100% - 1.25rem);
+      display: flex;
+      flex-direction: row;
+
+      .left {
+        height: 100%;
+        overflow: auto;
+        width: 1.5rem;
+        background: rgb(246, 247, 249);
+
+        &::-webkit-scrollbar {
+          display: none;
+        }
+
+        .sortItem {
+          padding: 0.2rem 0;
+          text-align: center;
+          font-size: 0.3rem;
+          font-weight: bold;
+          color: #999999;
+        }
+      }
+
+      .right {
+        padding: 0.2rem;
+        height: calc(100% - 0.4rem);
+        flex: 1;
+
+        .topHead {
+          display: flex;
+          padding: 0 0 0.2rem 0;
+
+          .paramsItem {
+            margin-right: 1rem;
+            font-weight: bold;
+            color: #999999;
+          }
+
+          .paramsItemActive {
+            margin-right: 1rem;
+            font-weight: bold;
+            color: rgb(226, 119, 87);
+          }
+        }
+
+        .shoppingItemScrollBody {
+          display: flex;
+          flex-direction: column;
+
+          .shoppingItem {
+            padding: 0.2rem 0 ;
+            display: flex;
+            flex-direction: row;
+
+            .shoppingItemLeft {
+              padding-bottom: 0.1rem;
+
+              img {
+                height: 2rem;
+                width: 2rem;
+              }
+            }
+
+            .shoppingItemRight {
+              display: flex;
+              padding-bottom: 0.2rem;
+              flex-direction: column;
+              justify-content: space-between;
+
+              .shoppingItemTop {
+                font-weight: bolder;
+              }
+
+              .shoppingItemBottom {
+                display: flex;
+                flex-direction: row;
+                align-items: flex-end;
+                justify-content: space-between;
+
+                .leftPrice {
+                  color: rgb(248, 99, 55);
+                }
+
+                .addToCar {
+                  border-radius: 99999px;
+                  padding:0.1rem 0.2rem;
+                  color: #FFFFFF;
+                  background: rgb(248, 99, 55);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

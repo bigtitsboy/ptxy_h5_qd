@@ -6,18 +6,18 @@
   >
     <div class="mainBody">
       <!-- 模板内容开始 -->
-      <div class="user-info-wrap">
+      <div class="user-info-wrap" v-if="userInfo!==null">
         <div class="base-info-wrap">
           <div class="left-hand" @click="seeUserInfo">
             <img
               class="user-photo"
-              src="https://c-ssl.duitang.com/uploads/item/201803/17/20180317125750_rwjth.thumb.1000_0.jpg"
-              v-real-img="'/static/images/default_user_photo.png'"
+              :src="userInfo.avatar"
+              v-real-img="require('../assets/images/profile.jpg')"
             />
           </div>
           <div class="right-hand" @click="seeUserInfo">
             <div class="left-area">
-              <div class="user-name">张三</div>
+              <div class="user-name">{{ userInfo.nickName }}</div>
               <div class="append-info">
               <span class="tag">
                 <em class="icon"></em>
@@ -49,32 +49,32 @@
             </router-link>
           </div>
         </div>
-<!--        <div class="digital-assets-wrap">-->
-<!--          <div class="col">-->
-<!--            <router-link to="/accountBalance">-->
-<!--              <em class="value">12.00</em>-->
-<!--              <strong class="label">余额</strong>-->
-<!--            </router-link>-->
-<!--          </div>-->
-<!--          <div class="col">-->
-<!--            <router-link to="/accountRedPacket">-->
-<!--              <em class="value">12.00</em>-->
-<!--              <strong class="label">红包</strong>-->
-<!--            </router-link>-->
-<!--          </div>-->
-<!--          <div class="col">-->
-<!--            <router-link to="/accountPoints">-->
-<!--              <em class="value">12</em>-->
-<!--              <strong class="label">积分</strong>-->
-<!--            </router-link>-->
-<!--          </div>-->
-<!--          <div class="col">-->
-<!--            <router-link to="/accountCoupon">-->
-<!--              <em class="value">5</em>-->
-<!--              <strong class="label">优惠券</strong>-->
-<!--            </router-link>-->
-<!--          </div>-->
-<!--        </div>-->
+        <!--        <div class="digital-assets-wrap">-->
+        <!--          <div class="col">-->
+        <!--            <router-link to="/accountBalance">-->
+        <!--              <em class="value">12.00</em>-->
+        <!--              <strong class="label">余额</strong>-->
+        <!--            </router-link>-->
+        <!--          </div>-->
+        <!--          <div class="col">-->
+        <!--            <router-link to="/accountRedPacket">-->
+        <!--              <em class="value">12.00</em>-->
+        <!--              <strong class="label">红包</strong>-->
+        <!--            </router-link>-->
+        <!--          </div>-->
+        <!--          <div class="col">-->
+        <!--            <router-link to="/accountPoints">-->
+        <!--              <em class="value">12</em>-->
+        <!--              <strong class="label">积分</strong>-->
+        <!--            </router-link>-->
+        <!--          </div>-->
+        <!--          <div class="col">-->
+        <!--            <router-link to="/accountCoupon">-->
+        <!--              <em class="value">5</em>-->
+        <!--              <strong class="label">优惠券</strong>-->
+        <!--            </router-link>-->
+        <!--          </div>-->
+        <!--        </div>-->
       </div>
       <div class="recommend-friend-wrap">
         <div class="left-hand">
@@ -172,6 +172,7 @@ export default {
     return {
       axiosed: false, // 页面盒模型显示状态
       axiosSucNum: 0, // 接口请求成功数量
+      userInfo: null
     };
   },
   created() {
@@ -180,13 +181,15 @@ export default {
       openLoad: true,
       closeLoad: true
     }).then(res => {
-      if(res.code == 401){
+      if (res.code == 401) {
         this.$func.openToast('登录异常，请重新登陆')
         this.$router.push({
           path: '/login', query: {
             surl: this.$route.path
           }
         })
+      } else {
+        this.userInfo = res.member
       }
     })
     // if (this.$define.ROOT) {
@@ -221,7 +224,8 @@ export default {
     },
     // 查看用户信息
     seeUserInfo() {
-      this.$router.push("/userInfo");
+      localStorage.setItem('userInfo', JSON.stringify(this.userInfo))
+      this.$router.push({path: "/userInfo"});
     },
   },
   components: {

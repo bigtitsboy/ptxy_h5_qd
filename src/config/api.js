@@ -6,5 +6,6 @@ export default {
   getSortList: '/goods/goodsCategory/list',
   addSecondhandGoods: '/goods/secondhandGoods',
   loginOut: '/logout',
-  getUserInfo: '/api/getInfo'
+  getUserInfo: '/api/getInfo',
+  updateMember: '/info/member'
 }

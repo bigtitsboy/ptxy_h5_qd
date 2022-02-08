@@ -15,6 +15,7 @@ import secondhandGoods from '../views/secondhandGoods/secondhandGoods'
 import index from '../views/index'
 import log_on from "../views/info/log_on";
 import addGoods from "../views/secondhandGoods/addGoods";
+import schollShopGoods from "../views/shopGoods/schollShopGoods";
 
 Vue.use(Router);
 
@@ -109,6 +110,14 @@ const routerList = [{
     component: addGoods,
     meta: {
       title: '发布商品'
+    }
+  },
+  {
+    path: '/shopGoods',
+    name: 'shopGoods',
+    component: schollShopGoods,
+    meta: {
+      title: '宿舍网店'
     }
   }
 ];

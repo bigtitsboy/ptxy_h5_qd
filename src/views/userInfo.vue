@@ -5,32 +5,32 @@
     v-show="axiosed"
   >
     <!-- 模板内容开始 -->
-    <div class="cell-wrap">
+    <div class="cell-wrap" v-if="userInfo!==null">
       <div class="cell pr">
         <img
           class="user-photo"
-          src="https://c-ssl.duitang.com/uploads/item/201803/17/20180317125750_rwjth.thumb.1000_0.jpg"
-          v-real-img="'/static/images/default_user_photo.png'"
+          :src="userInfo.avatar"
+          v-real-img="require('../assets/images/profile.jpg')"
         />
         <span class="value arrow">更换头像</span>
         <input
           class="awaken-img-file"
           type="file"
           accept="image/*"
-          @change="changeAvatarEvent"
+          @change="uploadImg"
         />
       </div>
       <div class="cell">
         <span class="label">用户账号</span>
-        <span class="value">365897123</span>
+        <span class="value">{{ userInfo.memberName }}</span>
       </div>
       <div class="cell">
         <span class="label">用户昵称</span>
-        <span class="value arrow">哈哈哈</span>
+        <span class="value arrow"><input maxlength="8" class="value arrow" type="text" v-model="userInfo.nickName"></span>
       </div>
       <div class="cell">
         <span class="label">手机号码</span>
-        <span class="value arrow">166****6666</span>
+        <span class="value">{{ userInfo.phonenumber }}</span>
       </div>
       <div class="cell">
         <span class="label">实名认证</span>
@@ -43,10 +43,14 @@
         <span class="value">无</span>
       </div>
     </div>
-    <div class="cell-wrap">
-      <div class="cell" style="text-align: center;justify-content: center;color: red;font-weight: bolder"
+    <div class="cell-wrap" style="display: flex">
+      <div class="cell" style="flex: 1;text-align: center;justify-content: center;color: red;font-weight: bolder"
            @click="loginOut">
         退出
+      </div>
+      <div class="cell" style="flex: 1;text-align: center;justify-content: center;color: green;font-weight: bolder"
+           @click="saveAll">
+        保存
       </div>
     </div>
     <!-- 模板内容结束 -->
@@ -60,9 +64,12 @@ export default {
     return {
       axiosed: false, // 页面盒模型显示状态
       axiosSucNum: 0, // 接口请求成功数量
+      userInfo: null
     };
   },
   created() {
+    // console.log(this.$route.params)
+    this.userInfo = JSON.parse(localStorage.getItem('userInfo'))
     let doAxiosDemo = this.doAxiosDemo(); // 示例请求
     // 待所有请求执行完毕后执行回调函数
     Promise.all([doAxiosDemo]).then(() => {
@@ -88,6 +95,41 @@ export default {
         return;
       }
       this.axiosSucNum++; // 接口请求成功数量标识+1
+    },
+    uploadImg(e) {
+      let param = new FormData()
+      param.append('file', e.target.files[0])
+      this.$func.axios(this.$api.uploadUrl, param, {
+        type: 'POST',
+        openLoad: true,
+        closeLoad: true
+      }).then(res => {
+        if (res) {
+          this.userInfo.avatar = res.url
+          // this.$func.axios(this.$api.updateMember, this.userInfo, {
+          //   type: 'PUT',
+          //   openLoad: true,
+          //   closeLoad: true
+          // })
+          // console.log(res)
+        }
+      })
+    },
+    saveAll() {
+      this.$axios({
+        headers: {
+          'appToken': localStorage.getItem('appToken'),
+          'Authorization': "Bearer " + localStorage.getItem('appToken')
+        },
+        method: 'PUT',
+        url: '/localhost' + this.$api.updateMember,
+        data: this.userInfo
+      }).then(res => {
+        if (res.data.code == 200) {
+          this.$func.openToast('保存成功')
+          this.$router.push('/userCenter')
+        }
+      })
     },
     // 变更用户头像
     changeAvatarEvent(e) {
@@ -123,6 +165,7 @@ export default {
         if (res.code == 200) {
           this.$func.openToast('退出成功')
           localStorage.removeItem('appToken')
+          localStorage.removeItem('userInfo')
           this.$router.replace('/index')
         }
       })

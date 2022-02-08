@@ -9,6 +9,10 @@ import {
 
 Vue.use(WechatPlugin)
 
+import axios from 'axios'
+
+Vue.prototype.$axios = axios
+
 import ReturnTop from './components/ReturnTop/'
 
 Vue.use(ReturnTop);
@@ -22,7 +26,7 @@ import 'swiper/dist/css/swiper.css'
 
 // 图片检测指令 v-real-img
 import './utils/real.img.js';
-import axios from "axios";
+// import axios from "axios";
 
 require('./assets/less/ctl.less') // 引入样式
 
