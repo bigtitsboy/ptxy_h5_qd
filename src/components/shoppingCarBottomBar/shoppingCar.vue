@@ -3,6 +3,7 @@
     <div class="left">
       <div class="top">
         <img :src="require('../../assets/images/购物车.png')" alt="">
+        <div class="redPoint">{{ shoppingCarList.length }}</div>
       </div>
       <div class="bottom">购物车</div>
     </div>
@@ -14,7 +15,8 @@
 
 <script>
 export default {
-  name: "shoppingCar"
+  name: "shoppingCar",
+  props: ['shoppingCarList']
 }
 </script>
 
@@ -39,9 +41,27 @@ export default {
     width: 1rem;
 
     .top {
+      position: relative;
+
       img {
         height: 0.5rem;
         width: 0.5rem;
+      }
+
+      .redPoint {
+        text-align: center;
+        position: absolute;
+        width: 0.3rem;
+        height: 0.3rem;
+        right: -50%;
+        top: -25%;
+        transform: scale(0.8);
+        background: #FF2E2E;
+        border-radius: 50%;
+        font-size: 0.1rem;
+        font-family: Hiragino Sans GB;
+        font-weight: normal;
+        color: #FFFFFF;
       }
     }
 

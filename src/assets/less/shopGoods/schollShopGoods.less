@@ -18,11 +18,25 @@
     flex-direction: column;
 
     .lineHead {
+      position: relative;
       height: 0.85rem;
       align-items: center;
       padding: 0.2rem;
       display: flex;
       flex-direction: row;
+
+      &:after {
+        content: "";
+        position: absolute;
+        left: 1.7rem;
+        top: 50%;
+        transform: translateY(-50%);
+        background: url("../../images/search.png");
+        background-size: contain;
+        height: 0.5rem;
+        width: 0.5rem;
+      }
+
 
       .left {
         font-weight: bolder;
@@ -42,6 +56,7 @@
         background: rgb(240, 240, 240);
         color: #999999;
         font-size: 0.3rem;
+
       }
     }
 
@@ -75,6 +90,7 @@
         flex: 1;
 
         .topHead {
+          height: 0.4rem;
           display: flex;
           padding: 0 0 0.2rem 0;
 
@@ -92,11 +108,17 @@
         }
 
         .shoppingItemScrollBody {
+          height: calc(100% - 0.4rem);
+          overflow: auto;
           display: flex;
           flex-direction: column;
 
+          &::-webkit-scrollbar {
+            display: none;
+          }
+
           .shoppingItem {
-            padding: 0.2rem 0 ;
+            padding: 0.2rem 0;
             display: flex;
             flex-direction: row;
 
@@ -110,6 +132,7 @@
             }
 
             .shoppingItemRight {
+              flex: 1;
               display: flex;
               padding-bottom: 0.2rem;
               flex-direction: column;
@@ -117,6 +140,15 @@
 
               .shoppingItemTop {
                 font-weight: bolder;
+              }
+
+              .overhide {
+                display: -webkit-box !important;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+                word-break: break-all;
               }
 
               .shoppingItemBottom {
@@ -131,7 +163,7 @@
 
                 .addToCar {
                   border-radius: 99999px;
-                  padding:0.1rem 0.2rem;
+                  padding: 0.1rem 0.2rem;
                   color: #FFFFFF;
                   background: rgb(248, 99, 55);
                 }

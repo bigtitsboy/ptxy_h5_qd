@@ -7,12 +7,12 @@
     <div class="mainBody">
       <div class="lineHead">
         <div class="left">分类</div>
-        <input class="rightSearch" type="search">
+        <input class="rightSearch" type="text">
       </div>
       <div class="mainScrollBody">
         <div class="left">
-          <div class="sortItem" v-for="count in 120">
-            海鲜水产
+          <div class="sortItem" v-for="(item,index) in sortList" :key="'sortListItem'+index">
+            {{ item }}
           </div>
         </div>
         <div class="right">
@@ -22,15 +22,17 @@
             <div class="paramsItem">价格</div>
           </div>
           <div class="shoppingItemScrollBody">
-            <div class="shoppingItem">
+            <div class="shoppingItem" v-for="(item,index) in shoppingItemList" :key="'shoppingItemListItem'+index">
               <div class="shoppingItemLeft">
                 <img :src="require('../../assets/images/accountCoupon/coupon_icon.png')" alt="">
               </div>
               <div class="shoppingItemRight vux-1px-b">
-                <div class="shoppingItemTop">XXXXXXX</div>
+                <div class="shoppingItemTop overhide">
+                  XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+                </div>
                 <div class="shoppingItemBottom">
                   <div class="leftPrice">￥45</div>
-                  <div class="addToCar">加入购物车</div>
+                  <div class="addToCar" @click="addToCar(item)">加入购物车</div>
                 </div>
               </div>
             </div>
@@ -38,7 +40,7 @@
         </div>
       </div>
     </div>
-    <shopping-car></shopping-car>
+    <shopping-car :shoppingCarList="carList"></shopping-car>
   </main>
 </template>
 
@@ -51,6 +53,14 @@ export default {
   data: function () {
     return {
       axiosed: true,
+      shoppingItemList: [1111, 2222, 3333],
+      sortList: [1111],
+      carList: []
+    }
+  },
+  methods: {
+    addToCar(item) {
+      this.carList.push(item)
     }
   }
 }
