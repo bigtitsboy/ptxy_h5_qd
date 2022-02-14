@@ -40,7 +40,12 @@
         </div>
       </div>
     </div>
-    <shopping-car :shoppingCarList="carList"></shopping-car>
+    <div v-show="mainBodyShadowClick" class="mainBodyShadow">
+      <div class="shoppingCarList">
+        <div class="shoppingCarListItem">123</div>
+      </div>
+    </div>
+    <shopping-car @mainBodyShadowClick="mainBodyShadowChange" :shoppingCarList="carList"></shopping-car>
   </main>
 </template>
 
@@ -55,12 +60,16 @@ export default {
       axiosed: true,
       shoppingItemList: [1111, 2222, 3333],
       sortList: [1111],
-      carList: []
+      carList: [],
+      mainBodyShadowClick: false
     }
   },
   methods: {
     addToCar(item) {
       this.carList.push(item)
+    },
+    mainBodyShadowChange() {
+      this.mainBodyShadowClick = !this.mainBodyShadowClick
     }
   }
 }

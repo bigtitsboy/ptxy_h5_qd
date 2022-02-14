@@ -174,4 +174,98 @@
       }
     }
   }
+
+  .mainBodyShadow {
+    width: 100%;
+    justify-content: flex-end;
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    height: calc(100% - 1.4rem);
+    display: flex;
+    flex-direction: column;
+    background: rgba(43, 43, 43, 0.5);
+
+    .shoppingCarList {
+      overflow: auto;
+      display: flex;
+      flex-direction: column;
+      background: #FFFFFF;
+      opacity: 1;
+      border-radius: 10px 10px 0 0;
+      padding: 0 15px;
+
+
+      .shoppingCarListItem {
+        align-items: center;
+        padding: 15px 0;
+        border-bottom: 1px solid #EEEEEE;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        .left {
+          display: flex;
+          flex-direction: row;
+
+          .left {
+            display: inline-block;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 150px;
+            font-size: 16px;
+            font-family: Source Han Sans CN;
+            font-weight: 400;
+            color: #333333;
+          }
+
+          .right {
+            flex-shrink: 0;
+            margin-left: 10px;
+            padding: 3px 8px;
+            border: 1px solid #13CE66;
+            border-radius: 16px;
+            font-size: 10px;
+            font-family: Source Han Sans CN;
+            font-weight: 400;
+            color: #13CE66;
+          }
+        }
+
+        .right {
+          margin-right: 10px;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+
+          .price {
+            font-size: 12px;
+            font-family: Source Han Sans CN;
+            font-weight: 500;
+            color: #FF2E2E;
+          }
+
+          .middleLine {
+            margin: 0 15px;
+            width: 1px;
+            height: 12px;
+            background: #EEEEEE;
+          }
+
+          .deleteIco {
+            display: flex;
+
+            img {
+              height: 15px;
+              width: 15px;
+            }
+          }
+        }
+      }
+
+    }
+
+  }
 }

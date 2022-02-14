@@ -1,8 +1,9 @@
 <template>
   <div class="shoppingCarOutBox">
-    <div class="left">
+    <div class="left" @click="showCar">
       <div class="top">
-        <img :src="require('../../assets/images/购物车.png')" alt="">
+        <img v-show="!carClick" :src="require('../../assets/images/购物车 (1).png')" alt="">
+        <img v-show="carClick" :src="require('../../assets/images/购物车 (2).png')" alt="">
         <div class="redPoint">{{ shoppingCarList.length }}</div>
       </div>
       <div class="bottom">购物车</div>
@@ -16,7 +17,18 @@
 <script>
 export default {
   name: "shoppingCar",
-  props: ['shoppingCarList']
+  props: ['shoppingCarList'],
+  data: function () {
+    return {
+      carClick: false
+    }
+  },
+  methods: {
+    showCar() {
+      this.carClick = !this.carClick
+      this.$emit('mainBodyShadowClick')
+    }
+  }
 }
 </script>
 
