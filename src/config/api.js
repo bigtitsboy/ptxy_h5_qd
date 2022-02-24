@@ -7,5 +7,6 @@ export default {
   addSecondhandGoods: '/goods/secondhandGoods',
   loginOut: '/logout',
   getUserInfo: '/api/getInfo',
-  updateMember: '/info/member'
+  updateMember: '/info/member',
+  listShopGoods: '/goods/shopGoods/list'
 }

@@ -10,9 +10,9 @@
         <input class="rightSearch" type="text">
       </div>
       <div class="mainScrollBody">
-        <div class="left">
+        <div class="left" v-if="sortList.length!==0">
           <div class="sortItem" v-for="(item,index) in sortList" :key="'sortListItem'+index">
-            {{ item }}
+            {{ item.name }}
           </div>
         </div>
         <div class="right">
@@ -59,9 +59,24 @@ export default {
     return {
       axiosed: true,
       shoppingItemList: [1111, 2222, 3333],
-      sortList: [1111],
+      sortList: [],
       carList: [],
-      mainBodyShadowClick: false
+      mainBodyShadowClick: false,
+      // 查询参数
+      queryParams: {
+        pageNum: 1,
+        pageSize: 10,
+        goodsName: null,
+        goodsContent: null,
+        goodsPrice: null,
+        goodsNumber: null,
+        categoryId: null,
+        userId: null,
+        phonenumber: null,
+        imagePathId: null,
+        goodsCount: null,
+        status: null
+      },
     }
   },
   methods: {
@@ -70,7 +85,44 @@ export default {
     },
     mainBodyShadowChange() {
       this.mainBodyShadowClick = !this.mainBodyShadowClick
-    }
+    },
+    /** 查询店铺商品列表 */
+    getList() {
+      this.$func.axios(this.$api.listShopGoods, this.queryParams, {
+        type: 'Get',
+        openLoad: true,
+        closeLoad: true
+      }).then(response => {
+        console.log(response)
+      })
+    },
+  },
+  created() {
+    // 获取分类
+    this.$func.axios(this.$api.getSortList, {}, {
+      type: 'Get',
+      openLoad: true,
+      closeLoad: true
+    }).then(res => {
+      if (res.code == 401) {
+        this.$func.openToast('登录异常，请重新登陆')
+        this.$router.push({
+          path: '/login', query: {
+            surl: this.$route.path
+          }
+        })
+      }
+      res.rows.forEach(x => {
+        var obj = {}
+        obj.name = x.categoryName
+        obj.value = x.categoryId.toString()
+        this.sortList.push(obj)
+      })
+      // this.sortList = res.rows
+      // console.log(res)
+    })
+    // 列表查询
+    this.getList()
   }
 }
 </script>
