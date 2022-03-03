@@ -9,6 +9,11 @@ import {
 
 Vue.use(WechatPlugin)
 
+import Cube from 'cube-ui'
+
+Vue.use(Cube)
+
+
 import axios from 'axios'
 
 Vue.prototype.$axios = axios

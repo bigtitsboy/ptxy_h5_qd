@@ -82,6 +82,27 @@
           font-weight: bold;
           color: #999999;
         }
+        .sortItemActive {
+          position: relative;
+          padding: 0.2rem 0;
+          text-align: center;
+          font-size: 0.3rem;
+          font-weight: bold;
+          color: #202020;
+          background: #FFFFFF;
+
+          &:after{
+            border-bottom-left-radius: 9999px;
+            border-top-left-radius: 9999px;
+            content: "";
+            position: absolute;
+            height: 160%;
+            width: 10%;
+            top: -30%;
+            right: 0;
+            background: #FFFFFF;
+          }
+        }
       }
 
       .right {

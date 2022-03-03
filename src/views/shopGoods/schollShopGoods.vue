@@ -11,7 +11,9 @@
       </div>
       <div class="mainScrollBody">
         <div class="left" v-if="sortList.length!==0">
-          <div class="sortItem" v-for="(item,index) in sortList" :key="'sortListItem'+index">
+          <div :class="[nowChangeSortListItem===index?'sortItemActive':'sortItem']" v-for="(item,index) in sortList"
+               :key="'sortListItem'+index"
+               @click="changeSortListItem(index)">
             {{ item.name }}
           </div>
         </div>
@@ -21,22 +23,30 @@
             <div class="paramsItem">销量</div>
             <div class="paramsItem">价格</div>
           </div>
-          <div class="shoppingItemScrollBody">
-            <div class="shoppingItem" v-for="(item,index) in shoppingItemList" :key="'shoppingItemListItem'+index">
-              <div class="shoppingItemLeft">
-                <img :src="require('../../assets/images/accountCoupon/coupon_icon.png')" alt="">
-              </div>
-              <div class="shoppingItemRight vux-1px-b">
-                <div class="shoppingItemTop overhide">
-                  XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+          <cube-scroll
+            style="height: calc(100% - 0.4rem)"
+            ref="contentScroll"
+            :options="options"
+            :data="shoppingItemList"
+            @pulling-up="onPullingUp"
+          >
+            <div class="shoppingItemScrollBody">
+              <div class="shoppingItem" v-for="(item,index) in shoppingItemList" :key="'shoppingItemListItem'+index">
+                <div class="shoppingItemLeft">
+                  <img :src="require('../../assets/images/accountCoupon/coupon_icon.png')" alt="">
                 </div>
-                <div class="shoppingItemBottom">
-                  <div class="leftPrice">￥45</div>
-                  <div class="addToCar" @click="addToCar(item)">加入购物车</div>
+                <div class="shoppingItemRight vux-1px-b">
+                  <div class="shoppingItemTop overhide">
+                    XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+                  </div>
+                  <div class="shoppingItemBottom">
+                    <div class="leftPrice">￥45</div>
+                    <div class="addToCar" @click="addToCar(item)">加入购物车</div>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+          </cube-scroll>
         </div>
       </div>
     </div>
@@ -57,6 +67,11 @@ export default {
   components: {ShoppingCar},
   data: function () {
     return {
+      options: {
+        pullDownRefresh: false,
+        pullUpLoad: true
+      },
+      nowChangeSortListItem: 0,
       axiosed: true,
       shoppingItemList: [1111, 2222, 3333],
       sortList: [],
@@ -80,6 +95,23 @@ export default {
     }
   },
   methods: {
+    // cube ui 下拉
+    onPullingUp() {
+      // let load = Toast.$create({txt: '', type: 'loading', time: 100000, mask: true}).show()
+      // let load = this.$createToast({txt: '', type: 'loading', time: 100000, mask: true}).show()//加载信息
+      // console.log(123)
+      // this.query.pageIndex++
+
+      setTimeout(()=>{
+        this.$refs.contentScroll.forceUpdate()
+        // load.hide();//关闭加载
+      },1000)
+
+
+    },
+    changeSortListItem(index) {
+      this.nowChangeSortListItem = index
+    },
     addToCar(item) {
       this.carList.push(item)
     },

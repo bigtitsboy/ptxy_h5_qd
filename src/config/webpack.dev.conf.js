@@ -1,5 +1,4 @@
 'use strict'
-
 module.exports = {
   proxyTable: {
     '/bilibili': {
@@ -17,5 +16,6 @@ module.exports = {
       }
     }
   },
-  port: 8888
+  port: 8888,
+
 }
