@@ -8,8 +8,8 @@
       </div>
       <div class="bottom">购物车</div>
     </div>
-    <div class="right">
-      <div class="shoppingCarPrice">￥0 去下单</div>
+    <div :class="[,carTotal!==0?'rightActive':'right']">
+      <div :class="['shoppingCarPrice']">￥{{ carTotal }} 去下单</div>
     </div>
   </div>
 </template>
@@ -17,7 +17,7 @@
 <script>
 export default {
   name: "shoppingCar",
-  props: ['shoppingCarList'],
+  props: ['shoppingCarList', 'carTotal'],
   data: function () {
     return {
       carClick: false
@@ -28,7 +28,8 @@ export default {
       this.carClick = !this.carClick
       this.$emit('mainBodyShadowClick')
     }
-  }
+  },
+  computed: {}
 }
 </script>
 
@@ -87,6 +88,22 @@ export default {
     height: 75%;
     flex: 1;
     background: rgb(218, 219, 224);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    .shoppingCarPrice {
+      color: #FFFFFF;
+    }
+  }
+
+  .rightActive {
+    border-radius: 9999999px;
+    margin-left: 0.3rem;
+    height: 75%;
+    flex: 1;
+    background: #f86337;
     display: flex;
     flex-direction: row;
     align-items: center;

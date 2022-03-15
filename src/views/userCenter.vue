@@ -96,8 +96,8 @@
         <div class="modular-cont">
           <div class="col">
             <router-link to="">
-              <em class="icon"></em>
-              <strong class="label">收藏关注</strong>
+              <em class="icon_local"></em>
+              <strong class="label">收货地址</strong>
             </router-link>
           </div>
           <div class="col">
