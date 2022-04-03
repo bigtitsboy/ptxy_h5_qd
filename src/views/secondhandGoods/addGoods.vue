@@ -6,7 +6,7 @@
   >
     <div @click="priceBlur" class="outBox" ref="addGoods_outBox">
       <div class="topHead">
-        <div class="left">取消</div>
+        <div class="left" @click="$router.back()">取消</div>
         <div class="right" @click="addGood">发布</div>
       </div>
       <group>
@@ -165,6 +165,13 @@ export default {
         openLoad: true,
         closeLoad: true,
         flag: 1
+      }).then(res => {
+        if (res.code == 200) {
+          this.$func.openToast('发布成功')
+          this.$router.push('/index')
+        } else {
+          this.$func.openToast('发布失败')
+        }
       })
     },
     priceFocus() {

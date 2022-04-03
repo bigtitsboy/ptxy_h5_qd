@@ -8,7 +8,7 @@
       </div>
       <div class="bottom">购物车</div>
     </div>
-    <div :class="[,carTotal!==0?'rightActive':'right']">
+    <div @click="carTotal!==0&&goPath()" :class="[carTotal!==0?'rightActive':'right']">
       <div :class="['shoppingCarPrice']">￥{{ carTotal }} 去下单</div>
     </div>
   </div>
@@ -24,9 +24,37 @@ export default {
     }
   },
   methods: {
+    getList() {
+      this.$func.axios(this.$api.listAddress, {}, {
+        type: 'get',
+        openLoad: true,
+        closeLoad: true,
+        flag: 1
+      }).then(res => {
+        // this.addressList = res.rows
+        if (res.rows.length !== 0) {
+          localStorage.setItem('shoppingCarList', JSON.stringify(this.shoppingCarList))
+          localStorage.setItem('carTotal', JSON.stringify(this.carTotal))
+          this.$router.push('/createNewOrder')
+        } else {
+          this.$func.openToast('请先添加地址')
+          setTimeout(() => {
+            this.$router.push({
+              path:'/localtionPage',
+              query:{
+                from:'shoppingCar'
+              }
+            })
+          }, 1500)
+        }
+      })
+    },
     showCar() {
       this.carClick = !this.carClick
       this.$emit('mainBodyShadowClick')
+    },
+    goPath() {
+      this.getList()
     }
   },
   computed: {}
@@ -62,6 +90,9 @@ export default {
       }
 
       .redPoint {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         text-align: center;
         position: absolute;
         width: 0.3rem;

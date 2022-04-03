@@ -16,6 +16,10 @@ import index from '../views/index'
 import log_on from "../views/info/log_on";
 import addGoods from "../views/secondhandGoods/addGoods";
 import schollShopGoods from "../views/shopGoods/schollShopGoods";
+import localtionPage from "../views/shopGoods/localtionPage";
+import createNewLocaltion from "../views/shopGoods/createNewLocaltion";
+import createNewOrder from "../views/shopGoods/createNewOrder";
+import myOrder from "../views/myOrder";
 
 Vue.use(Router);
 
@@ -37,7 +41,38 @@ const routerList = [{
   meta: {
     title: '用户中心'
   }
-}, {
+},
+  {
+    path: '/localtionPage',
+    name: 'localtionPage',
+    component: localtionPage,
+    meta: {
+      title: '收货地址'
+    }
+  },  {
+    path: '/createNewOrder',
+    name: 'createNewOrder',
+    component: createNewOrder,
+    meta: {
+      title: '确认订单'
+    }
+  }, {
+    path: '/myOrder',
+    name: 'myOrder',
+    component: myOrder,
+    meta: {
+      title: '我的订单'
+    }
+  },
+  {
+    path: '/createNewLocaltion',
+    name: 'createNewLocaltion',
+    component: createNewLocaltion,
+    meta: {
+      title: '收货地址编辑'
+    }
+  },
+  {
   path: '/userInfo',
   name: 'userInfo',
   component: userInfo,

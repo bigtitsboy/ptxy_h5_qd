@@ -1,0 +1,162 @@
+.view-wrap.createNewOrder-main {
+  //height: 100%;
+  position: relative;
+  display: flex;
+  background: #f6f6f6;
+  //overflow: visible;
+  //flex-wrap: wrap;
+  flex-direction: column;
+  height: calc(100%);
+  overflow: auto;
+  //padding: 0 0.2rem;
+
+  .topLocal {
+    margin-bottom: 0.1rem;
+    padding: 0.15rem 0.2rem;
+    background: white;
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1em solid transparent;
+    border-image: url("../../../assets/images/img_1.png") 100 10 round;
+
+    .leftImg {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 1rem;
+      height: auto;
+
+      img {
+        width: auto;
+        height: 0.5rem;
+      }
+    }
+
+    .centerDetail {
+      display: flex;
+      flex-direction: column;
+
+      .line1 {
+        align-items: baseline;
+        display: flex;
+        flex-direction: row;
+
+        .left {
+          font-size: 0.4rem;
+        }
+
+        .right {
+          margin-left: 0.2rem;
+          font-size: 0.3rem;
+        }
+      }
+
+      .line2 {
+        display: flex;
+
+        .local {
+          font-size: 0.15rem;
+          color: #999999;
+        }
+      }
+    }
+
+    .rightImg {
+      margin-left: auto;
+      margin-right: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 1rem;
+      height: auto;
+
+      img {
+        width: auto;
+        height: 0.3rem;
+      }
+    }
+  }
+
+  .orderDetail {
+    background: white;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+
+    .topHead {
+      align-items: center;
+      padding: 0.2rem 0.4rem;
+      border-bottom: 1px solid rgb(246, 246, 246);
+      display: flex;
+      flex-direction: row;
+
+      .logo {
+        width: auto;
+        height: 0.5rem;
+
+        img {
+          height: 100%;
+        }
+      }
+
+      .shopName {
+        margin-left: 0.2rem;
+        font-size: 0.4rem;
+      }
+    }
+
+    .scrollBody {
+      padding: 0.2rem 0.4rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+
+      .orderItem {
+        padding: 0.2rem 0;
+        display: flex;
+        flex-direction: row;
+        font-size: 0.3rem;
+
+        .itemName {
+          width: 60%;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          color: #999999;
+        }
+
+        .itemNum {
+          text-align: center;
+          width: 20%;
+          color: #999999;
+
+        }
+
+        .itemTotal {
+          text-align: right;
+          width: 20%;
+          color: rgb(211, 135, 65);
+        }
+      }
+    }
+  }
+
+  .bottomCheck {
+    font-size: 0.3rem;
+    color: #FFFFFF;
+    display: flex;
+    flex-direction: row;
+
+    .left {
+      flex: 1;
+      padding: 0.3rem;
+      background: rgb(61, 61, 61);
+    }
+
+    .right {
+      padding: 0.3rem;
+      background: rgb(87, 208, 117);
+    }
+  }
+}

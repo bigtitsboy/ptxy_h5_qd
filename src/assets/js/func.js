@@ -478,7 +478,7 @@ const func = {
       baseURL: $define.AXIOSBASEURL,
       timeout: $define.AXIOSTIMEOUT,
       url: url,
-      [conf.type.toUpperCase() === 'POST' ? 'data' : 'params']:  (param instanceof FormData) ? param : ((conf.type === 'POST' && conf.flag === 1) ? JSON.stringify(param) : (((conf.type === 'POST' || conf.type === 'GET') && conf.flag === 2) ? qs.stringify(param) : param)),
+      [['POST', 'PUT'].includes(conf.type.toUpperCase()) ? 'data' : 'params']: (param instanceof FormData) ? param : ((conf.type === 'POST' && conf.flag === 1) ? JSON.stringify(param) : (((conf.type === 'POST' || conf.type === 'GET') && conf.flag === 2) ? qs.stringify(param) : param)),
       // data: (param instanceof FormData) ? param : (conf.type === 'POST' ? qs.stringify(param) : param),
       // params: (param instanceof FormData) ? param : (conf.type === 'POST' ? qs.stringify(param) : param),
       openLoad: conf.openLoad,

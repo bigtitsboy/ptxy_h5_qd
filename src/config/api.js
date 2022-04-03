@@ -8,5 +8,13 @@ export default {
   loginOut: '/logout',
   getUserInfo: '/api/getInfo',
   updateMember: '/info/member',
-  listShopGoods: '/goods/shopGoods/list'
+  listShopGoods: '/goods/shopGoods/list',
+  addAddress: '/order/address',
+  listAddress: '/order/address/list',
+  delAddress: '/order/address/',
+  getAddress: '/order/address/',
+  addShopOrder: '/order/shopOrder',
+  listShopOrder: '/order/shopOrder/list',
+  updateShopOrder: '/order/shopOrder',
+  getSecondhandGoodsList: '/goods/secondhandGoods/list',
 }

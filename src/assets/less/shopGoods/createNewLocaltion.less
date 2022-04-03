@@ -1,0 +1,112 @@
+.view-wrap.createNewLocaltion-main {
+  //height: 100%;
+  position: relative;
+  display: flex;
+  background: #f6f6f6;
+  //overflow: visible;
+  //flex-wrap: wrap;
+  flex-direction: column;
+  height: calc(100%);
+  overflow: auto;
+  //padding: 0 0.2rem;
+
+
+  .topHead {
+    background: #f6f6f6;
+    padding: 0.2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .back {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      img {
+        height: 0.4rem;
+        width: auto;
+      }
+    }
+
+    .center {
+      color: #676767;
+      font-size: 0.4rem;
+    }
+
+    .saveInfo {
+      color: #d56f4f;
+      font-size: 0.3rem;
+      //margin-right: 0;
+      //margin-left: auto;
+    }
+  }
+
+  .form {
+    background: #FFFFFF;
+
+    .line1 {
+      padding: 0.2rem;
+
+      &:empty::before {
+        content: attr(placeholdere);
+        color: #bbb;
+      }
+
+      /*不一样的地方*/
+
+      &:focus {
+        content: none;
+      }
+
+      &:focus {
+        border: none;
+        outline: none;
+      }
+    }
+
+    .line2 {
+      padding: 0.2rem;
+      border-top: 1px solid #f1f1f1;
+      border-bottom: 1px solid #f1f1f1;
+
+      &:empty::before {
+        content: attr(placeholdere);
+        color: #bbb;
+      }
+
+      /*不一样的地方*/
+
+      &:focus {
+        content: none;
+      }
+
+      &:focus {
+        border: none;
+        outline: none;
+      }
+    }
+
+    .line3 {
+      padding: 0.2rem;
+      border-bottom: 1px solid #f1f1f1;
+
+      &:empty::before {
+        content: attr(placeholdere);
+        color: #bbb;
+      }
+
+      /*不一样的地方*/
+
+      &:focus {
+        content: none;
+      }
+
+      &:focus {
+        border: none;
+        outline: none;
+      }
+    }
+
+  }
+}

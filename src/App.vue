@@ -51,7 +51,7 @@ export default {
   created() {
     this.$func.flexible();
     this.updateHtmlFile(); // 更新html文件
-      this.showView = true;
+    this.showView = true;
     // this.getSystemVersion(); // 获取系统版本号
   },
   mounted() {
@@ -127,3 +127,8 @@ export default {
   },
 };
 </script>
+<style>
+.cube-toast-icon {
+  height: auto !important;
+}
+</style>
