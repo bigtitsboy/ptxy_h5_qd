@@ -5,8 +5,8 @@
     v-show="axiosed"
   >
     <div class="welcome-module">
-      <div class="msg">123</div>
-      <div class="des">456</div>
+      <div class="msg">莆田学院校园生活服务平台</div>
+      <div class="des">请登录</div>
     </div>
     <ul class="tab-nav">
       <li

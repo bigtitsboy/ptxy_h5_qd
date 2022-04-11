@@ -23,7 +23,7 @@
               <img :src="require('../../assets/images/删除.png')" alt="">
             </span>
           </div>
-          <label class="uploadImgLabel" for="goodsUpload">
+          <label v-show="uploadImgList.length<3" class="uploadImgLabel" for="goodsUpload">
             <div class="line1">+</div>
             <div class="line1">上传图片</div>
           </label>
@@ -93,6 +93,7 @@ export default {
   data: function () {
     return {
       axiosed: true,
+      putState: false,
       goodsDetail: '', //详情
       goodsDetailRows: 5,
       uploadImgList: [], // 上传图片list
@@ -101,6 +102,7 @@ export default {
       checkSort: [], //商品分类
       goodStatue: '', //新旧程度
       goodTitle: '', // 标题
+      goodId: null,
       showKeyboard: false,
       FinputTxtLength: 0,
       phonenumber: '',//联系电话
@@ -151,28 +153,52 @@ export default {
         , 1)
     },
     addGood() {
-      this.form = {
-        goodsName: this.goodTitle,
-        goodsContent: this.goodsDetail,
-        goodsPrice: this.goodPrice,
-        categoryId: this.checkSort[0],
-        phonenumber: this.phonenumber,
-        imageList: this.uploadImgList,
-        remark: this.goodStatue
-      }
-      this.$func.axios(this.$api.addSecondhandGoods, this.form, {
-        type: 'POST',
-        openLoad: true,
-        closeLoad: true,
-        flag: 1
-      }).then(res => {
-        if (res.code == 200) {
-          this.$func.openToast('发布成功')
-          this.$router.push('/index')
-        } else {
-          this.$func.openToast('发布失败')
+      if (this.putState) {
+        this.form.goodsName = this.goodTitle,
+          this.form.goodsContent = this.goodsDetail,
+          this.form.goodsPrice = this.goodPrice,
+          this.form.categoryId = this.checkSort[0],
+          this.form.phonenumber = this.phonenumber.replace(/\ +/g, ''),
+          this.form.imageList = this.uploadImgList,
+          this.form.remark = this.goodStatue
+
+        this.$func.axios(this.$api.addSecondhandGoods, this.form, {
+          type: 'put',
+          openLoad: true,
+          closeLoad: true,
+          flag: 1
+        }).then(res => {
+          if (res.code == 200) {
+            this.$func.openToast('发布成功')
+            this.$router.back()
+          } else {
+            this.$func.openToast('发布失败')
+          }
+        })
+      } else {
+        this.form = {
+          goodsName: this.goodTitle,
+          goodsContent: this.goodsDetail,
+          goodsPrice: this.goodPrice,
+          categoryId: this.checkSort[0],
+          phonenumber: this.phonenumber.replace(/\ +/g, ''),
+          imageList: this.uploadImgList,
+          remark: this.goodStatue
         }
-      })
+        this.$func.axios(this.$api.addSecondhandGoods, this.form, {
+          type: 'POST',
+          openLoad: true,
+          closeLoad: true,
+          flag: 1
+        }).then(res => {
+          if (res.code == 200) {
+            this.$func.openToast('发布成功')
+            this.$router.push('/index')
+          } else {
+            this.$func.openToast('发布失败')
+          }
+        })
+      }
     },
     priceFocus() {
       this.$refs.addGoods_Keyboard.showKeyboardInsideShow()
@@ -225,6 +251,30 @@ export default {
       // this.sortList = res.rows
       // console.log(res)
     })
+
+    if (this.$route.query.goodsId !== undefined) {
+      this.putState = true
+      this.$func.axios(this.$api.addSecondhandGoods + '/' + this.$route.query.goodsId, {}, {
+        type: 'Get',
+        openLoad: true,
+        closeLoad: true
+      }).then(res => {
+        this.form = res.data
+        this.goodId = res.data.goodsId
+        this.goodTitle = res.data.goodsName
+        this.$refs.goodsDetail.innerHTML = res.data.goodsContent
+        this.goodsDetail = res.data.goodsContent
+        this.goodPrice = res.data.goodsPrice
+        this.$set(this.checkSort, 0, res.data.categoryId.toString())
+        // this.checkSort[0] = res.data.categoryId.toString()
+        this.phonenumber = res.data.phonenumber
+
+        this.uploadImgList = res.data.imageList
+        this.goodStatue = res.data.status
+        // this.$forceUpdate()
+        //  console.log(res)
+      })
+    }
   }
 }
 </script>

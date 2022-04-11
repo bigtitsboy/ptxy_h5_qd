@@ -17,4 +17,7 @@ export default {
   listShopOrder: '/order/shopOrder/list',
   updateShopOrder: '/order/shopOrder',
   getSecondhandGoodsList: '/goods/secondhandGoods/list',
+  getSecondhandGoodsListSelf: '/goods/secondhandGoods/publishList',
+  listInfo:'/activity/info/list',
+  getListInfo:'/activity/info/'
 }

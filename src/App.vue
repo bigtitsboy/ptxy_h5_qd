@@ -131,4 +131,12 @@ export default {
 .cube-toast-icon {
   height: auto !important;
 }
+
+.cubeic-phone {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
 </style>

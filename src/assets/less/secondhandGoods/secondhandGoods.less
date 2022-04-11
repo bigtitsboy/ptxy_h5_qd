@@ -94,7 +94,7 @@
 
 
   span:nth-child(even) {
-    margin-left: 0.4rem;
+    //margin-left: 0.4rem;
   }
 
   .scrollBody {
@@ -105,6 +105,8 @@
     //padding: 0 0.5rem;
     position: relative;
     display: flex;
+    column-count: 2;
+    column-gap: 0.4rem;
     flex-wrap: wrap;
     //height: auto;
 
@@ -112,125 +114,136 @@
       display: none;
     }
 
-    .boxItem {
-      margin-top: 0.2rem;
+
+    .itemList {
+      flex: 1;
       display: flex;
-      width: calc(50% - 0.2rem);
       flex-direction: column;
       flex-wrap: wrap;
+      height: min-content;
 
-      .line1 {
-        margin-bottom: 0.1rem;
-        width: 100%;
+      .boxItem {
+        margin-top: 0.2rem;
+        display: flex;
+        //width: calc(50% - 0.2rem);
+        flex-direction: column;
+        flex-wrap: wrap;
 
-        img {
+        .line1 {
+          margin-bottom: 0.1rem;
           width: 100%;
-          border-radius: 15px;
+
+          img {
+            max-height: 3rem;
+            width: 100%;
+            border-radius: 15px;
+          }
+        }
+
+        .line2 {
+          display: -webkit-box !important;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          //text-indent: 0.75rem;
+          font-weight: bolder;
+          -webkit-line-clamp: 2;
+          -webkit-box-orient: vertical;
+          word-break: break-all;
+          position: relative;
+
+          .new {
+            line-height: 0.34rem;
+            font-weight: normal;
+            border-radius: 5px;
+            padding: 0.05rem 0;
+            //text-indent: 0;
+            //content: '全新';
+            color: white;
+            font-size: 0.24rem;
+            //position: absolute;
+            width: 0.7rem;
+            text-align: center;
+            //left: 0;
+            //top: 25%;
+            //transform: translateY(-50%);
+            background: rgb(72, 175, 254);
+            height: 0.3rem;
+            display: inline-block;
+          }
+
+          .old {
+            line-height: 0.34rem;
+            font-weight: normal;
+            border-radius: 5px;
+            padding: 0.05rem 0;
+            //text-indent: 0;
+            //content: '全新';
+            color: white;
+            font-size: 0.24rem;
+            //position: absolute;
+            width: 0.7rem;
+            text-align: center;
+            //left: 0;
+            //top: 25%;
+            //transform: translateY(-50%);
+            background: rgb(232, 191, 106);
+            height: 0.3rem;
+            display: inline-block;
+          }
+        }
+
+        .line3 {
+          color: red;
+          font-weight: bolder;
+          font-size: 0.28rem;
+          display: flex;
+          align-items: baseline;
+
+          span {
+            font-weight: normal;
+            font-size: 0.24rem;
+            vertical-align: sub;
+            display: inline-block;
+            height: 100%;
+          }
+
+          div {
+            font-size: 0.32rem;
+            //margin-left: -0.08rem;
+            vertical-align: middle;
+            display: inline-block;
+            text-align: left;
+          }
+
+          .visitedNum {
+            margin-right: 0;
+            margin-left: auto;
+            font-weight: normal;
+            font-size: 0.2rem;
+            color: rgb(182, 182, 182);
+          }
+        }
+
+        .line4 {
+          margin-top: 0.15rem;
+          display: flex;
+          align-items: flex-end;
+
+          img {
+            border-radius: 50%;
+            display: inline-block;
+            height: 0.5rem;
+            width: 0.5rem;
+          }
+
+          span {
+            color: gray;
+            font-size: 0.24rem;
+            margin-left: 0.1rem;
+          }
         }
       }
 
-      .line2 {
-        display: -webkit-box !important;
-        text-overflow: ellipsis;
-        overflow: hidden;
-        //text-indent: 0.75rem;
-        font-weight: bolder;
-        -webkit-line-clamp: 2;
-        -webkit-box-orient: vertical;
-        word-break: break-all;
-        position: relative;
-
-        .new {
-          line-height: 0.34rem;
-          font-weight: normal;
-          border-radius: 5px;
-          padding: 0.05rem 0;
-          //text-indent: 0;
-          //content: '全新';
-          color: white;
-          font-size: 0.24rem;
-          //position: absolute;
-          width: 0.7rem;
-          text-align: center;
-          //left: 0;
-          //top: 25%;
-          //transform: translateY(-50%);
-          background: rgb(72, 175, 254);
-          height: 0.3rem;
-          display: inline-block;
-        }
-
-        .old {
-          line-height: 0.34rem;
-          font-weight: normal;
-          border-radius: 5px;
-          padding: 0.05rem 0;
-          //text-indent: 0;
-          //content: '全新';
-          color: white;
-          font-size: 0.24rem;
-          //position: absolute;
-          width: 0.7rem;
-          text-align: center;
-          //left: 0;
-          //top: 25%;
-          //transform: translateY(-50%);
-          background: rgb(232, 191, 106);
-          height: 0.3rem;
-          display: inline-block;
-        }
-      }
-
-      .line3 {
-        color: red;
-        font-weight: bolder;
-        font-size: 0.28rem;
-        display: flex;
-        align-items: baseline;
-
-        span {
-          font-weight: normal;
-          font-size: 0.24rem;
-          vertical-align: sub;
-          display: inline-block;
-          height: 100%;
-        }
-
-        div {
-          font-size: 0.32rem;
-          //margin-left: -0.08rem;
-          vertical-align: middle;
-          display: inline-block;
-          text-align: left;
-        }
-
-        .visitedNum {
-          margin-right: 0;
-          margin-left: auto;
-          font-weight: normal;
-          font-size: 0.2rem;
-          color: rgb(182, 182, 182);
-        }
-      }
-
-      .line4 {
-        margin-top: 0.15rem;
-        display: flex;
-        align-items: flex-end;
-
-        img {
-          border-radius: 50%;
-          display: inline-block;
-          height: 0.5rem;
-          width: 0.5rem;
-        }
-
-        span {
-          color: gray;
-          font-size: 0.24rem;
-          margin-left: 0.1rem;
-        }
-      }
     }
 
 

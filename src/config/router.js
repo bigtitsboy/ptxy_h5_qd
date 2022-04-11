@@ -20,6 +20,10 @@ import localtionPage from "../views/shopGoods/localtionPage";
 import createNewLocaltion from "../views/shopGoods/createNewLocaltion";
 import createNewOrder from "../views/shopGoods/createNewOrder";
 import myOrder from "../views/myOrder";
+import sencondHandGoodsDetail from "../views/secondhandGoods/sencondHandGoodsDetail";
+import goodsListSelf from "../views/secondhandGoods/goodsListSelf";
+import activityInfo from "../views/activity/activityInfo";
+import activityInfoDetail from "../views/activity/activityInfoDetail";
 
 Vue.use(Router);
 
@@ -49,7 +53,7 @@ const routerList = [{
     meta: {
       title: '收货地址'
     }
-  },  {
+  }, {
     path: '/createNewOrder',
     name: 'createNewOrder',
     component: createNewOrder,
@@ -73,54 +77,61 @@ const routerList = [{
     }
   },
   {
-  path: '/userInfo',
-  name: 'userInfo',
-  component: userInfo,
-  meta: {
-    title: '用户信息'
-  }
-}, {
-  path: '/memberLevel',
-  name: 'memberLevel',
-  component: memberLevel,
-  meta: {
-    title: '会员等级'
-  }
-}, {
-  path: '/accountPoints',
-  name: 'accountPoints',
-  component: accountPoints,
-  meta: {
-    title: '用户积分'
-  }
-}, {
-  path: '/pointsDetails',
-  name: 'pointsDetails',
-  component: pointsDetails,
-  meta: {
-    title: '积分明细'
-  }
-}, {
-  path: '/accountCoupon',
-  name: 'accountCoupon',
-  component: accountCoupon,
-  meta: {
-    title: '优惠券'
-  }
-}, {
-  path: '/accountBalance',
-  name: 'accountBalance',
-  component: accountBalance,
-  meta: {
-    title: '账户余额'
-  }
-},
+    path: '/userInfo',
+    name: 'userInfo',
+    component: userInfo,
+    meta: {
+      title: '用户信息'
+    }
+  }, {
+    path: '/memberLevel',
+    name: 'memberLevel',
+    component: memberLevel,
+    meta: {
+      title: '会员等级'
+    }
+  }, {
+    path: '/accountPoints',
+    name: 'accountPoints',
+    component: accountPoints,
+    meta: {
+      title: '用户积分'
+    }
+  }, {
+    path: '/pointsDetails',
+    name: 'pointsDetails',
+    component: pointsDetails,
+    meta: {
+      title: '积分明细'
+    }
+  }, {
+    path: '/accountCoupon',
+    name: 'accountCoupon',
+    component: accountCoupon,
+    meta: {
+      title: '优惠券'
+    }
+  }, {
+    path: '/accountBalance',
+    name: 'accountBalance',
+    component: accountBalance,
+    meta: {
+      title: '账户余额'
+    }
+  },
   {
     path: '/secondhandGoods',
     name: 'secondhandGoods',
     component: secondhandGoods,
     meta: {
       title: '二手商品'
+    }
+  }, {
+    path: '/sencondHandGoodsDetail',
+    name: 'sencondHandGoodsDetail',
+    component: sencondHandGoodsDetail,
+    meta: {
+      title: '商品详情页'
     }
   },
   {
@@ -129,6 +140,13 @@ const routerList = [{
     component: index,
     meta: {
       title: '首页'
+    }
+  }, {
+    path: '/goodsListSelf',
+    name: 'goodsListSelf',
+    component: goodsListSelf,
+    meta: {
+      title: '已发布商品'
     }
   },
   {
@@ -153,6 +171,22 @@ const routerList = [{
     component: schollShopGoods,
     meta: {
       title: '宿舍网店'
+    }
+  },
+  {
+    path: '/activityInfo',
+    name: 'activityInfo',
+    component: activityInfo,
+    meta: {
+      title: '活动信息'
+    }
+  },
+  {
+    path: '/activityInfoDetail',
+    name: 'activityInfoDetail',
+    component: activityInfoDetail,
+    meta: {
+      title: '活动信息'
     }
   }
 ];

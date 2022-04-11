@@ -107,9 +107,9 @@
             </router-link>
           </div>
           <div class="col">
-            <router-link to="">
-              <em class="icon"></em>
-              <strong class="label">收藏关注</strong>
+            <router-link to="/goodsListSelf">
+              <em class="icon_goods"></em>
+              <strong class="label">我的商品</strong>
             </router-link>
           </div>
           <div class="col">

@@ -1,0 +1,105 @@
+.view-wrap.goodsListSelf-main {
+  //height: 100%;
+  position: relative;
+  display: flex;
+  background: #f0f0f0;
+  //overflow: visible;
+  //flex-wrap: wrap;
+  flex-direction: column;
+  height: calc(100%);
+  overflow: auto;
+  //padding: 0 0.2rem;
+
+  .topHead {
+    background: #FFFFFF;
+    color: #202020;
+    font-size: 0.4rem;
+    padding: 0.2rem;
+    border-bottom: 1px solid rgb(247, 247, 247);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+  }
+
+  .outBox {
+    column-count: 3;
+    column-gap: 0;
+    display: flex;
+    flex-direction: column;
+
+    .goodsItem {
+      border-radius: 0.2rem;
+      margin-bottom: 0.2rem;
+      padding: 0.2rem;
+      background: #FFFFFF;
+      display: flex;
+      flex-direction: column;
+      //align-items: center;
+
+      .detailLine1 {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        .leftImg {
+          display: flex;
+
+          img {
+            border-radius: 0.15rem;
+            height: 2rem;
+            width: 2rem;
+          }
+        }
+
+        .rightDetail {
+          height: 100%;
+          margin-left: 0.2rem;
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+
+          .line1Name {
+            width: 4.5rem;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            font-weight: bold;
+            font-size: 0.35rem;
+          }
+
+          .line2Price {
+            color: red;
+          }
+
+          .line3Other {
+            color: #666;
+          }
+        }
+      }
+
+      .detailLine2 {
+        border-top: 1px solid #f7f7f7;
+        justify-content: flex-end;
+        margin: 0.2rem 0.25rem 0.2rem 0;
+        display: flex;
+        flex-direction: row;
+
+        button {
+          margin-top: 0.3rem;
+          color: #202020;
+          font-weight: bold;
+          margin-left: 0.25rem;
+          background: #FFFFFF;
+          padding: 0.2rem 0.3rem!important;
+          width: fit-content;
+          border-radius: 2rem;
+        }
+      }
+
+    }
+
+  }
+}
