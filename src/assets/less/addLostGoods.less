@@ -1,0 +1,209 @@
+.view-wrap.addLostGoods-main {
+  //height: 100%;
+  position: relative;
+  display: flex;
+  //overflow: visible;
+  //flex-wrap: wrap;
+  flex-direction: column;
+  height: calc(100%);
+  overflow: auto;
+  padding: 0 0.2rem;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  .outBox {
+    display: flex;
+    //flex: 1;
+    height: 100%;
+    padding: 0 0.3rem;
+    flex-direction: column;
+    background: #FFFFFF;
+
+    .topHead {
+      margin-top: 0.2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-direction: row;
+
+      .left {
+        font-size: 0.34rem;
+        font-weight: bold;
+      }
+
+      .right {
+        //height: 0.48rem;
+        background: rgb(252, 240, 132);
+        border-radius: 999rem;
+        padding: 0.1rem 0.3rem;
+        font-size: 0.28rem;
+        font-weight: 300;
+      }
+    }
+
+    .goodsDetailInput {
+      margin-top: 0.3rem;
+      border-bottom: 1px solid rgb(228, 228, 228);
+
+      .goodsDetail {
+        width: 100%;
+        overflow-y: auto;
+        overflow-x: hidden;
+        min-height: 2rem;
+        max-height: 3rem;
+        font-size: 0.38rem;
+        outline: none;
+
+        &::-webkit-scrollbar {
+          display: none;
+        }
+
+
+        &:empty::before {
+          content: '描述物品详情';
+          color: #bbb;
+        }
+
+        /*不一样的地方*/
+
+        &:focus {
+          content: none;
+        }
+      }
+
+
+      .uploadImgBottomBar {
+        display: flex;
+        flex-wrap: wrap;
+        //justify-content: space-between;
+
+        .uploadImgListItem {
+          display: inline-block;
+          position: relative;
+
+          img {
+            border-radius: 10px;
+            height: 2rem;
+            width: 2rem;
+            margin: 0.2rem 0.1rem 0.2rem 0;
+          }
+
+          .closeIco {
+            position: absolute;
+            top: 0.1rem;
+            right: -0.05rem;
+            height: 0.2rem;
+            width: 0.2rem;
+
+            img {
+              height: 100%;
+              width: 100%;
+              margin: 0;
+            }
+          }
+        }
+
+        .uploadImgLabel {
+          height: 2rem;
+          width: 2rem;
+          display: flex;
+          background: #f7f7f7;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          border-radius: 10px;
+          margin: 0.2rem 0.1rem 0.2rem 0;
+
+          .line1 {
+            font-size: 0.28rem;
+            color: #cbcbcb;
+          }
+        }
+
+      }
+    }
+
+    .goodPrice {
+      display: flex;
+
+      .sortPart {
+        padding: 10px 15px;
+        display: flex;
+        flex-direction: row;
+        font-size: 0.34rem;
+        font-weight: bold;
+
+        img {
+          margin-right: 0.2rem;
+          height: 0.5rem;
+          width: 0.5rem;
+        }
+      }
+
+
+      .priceInput input {
+        color: red;
+      }
+
+      .left {
+        line-height: inherit;
+        display: flex;
+        flex-direction: row;
+        font-weight: 600;
+        align-items: center;
+
+        img {
+          height: 0.5rem;
+          width: 0.5rem;
+          margin-right: 0.2rem;
+        }
+      }
+
+      .right {
+      }
+
+      input::placeholder {
+        color: red;
+      }
+
+      .goodStatue {
+        align-items: center;
+        justify-content: space-between;
+        display: flex;
+        flex-direction: row;
+        padding: 10px 15px;
+
+        .left {
+          display: flex;
+          flex-direction: row;
+          font-size: 0.34rem;
+          font-weight: bold;
+
+          img {
+            margin-right: 0.2rem;
+            height: 0.5rem;
+            width: 0.5rem;
+          }
+        }
+
+        .right {
+          .demo1-item {
+            border: 1px solid #ececec;
+            padding: 5px 15px;
+          }
+
+          .demo1-item-selected {
+            border: 1px solid green;
+          }
+        }
+
+      }
+
+    }
+
+
+  }
+
+}

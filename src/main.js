@@ -9,11 +9,15 @@ import {
 
 Vue.use(WechatPlugin)
 
+import drags from "@zhengkang1/mobile-drags/lib"
+//在main.js中注册全局自定义指令
+Vue.directive('drag', drags)
+
 import Cube from 'cube-ui'
 
 Vue.use(Cube)
 
-import  VueQuillEditor from 'vue-quill-editor'
+import VueQuillEditor from 'vue-quill-editor'
 // require styles 引入样式
 import 'quill/dist/quill.core.css'
 import 'quill/dist/quill.snow.css'

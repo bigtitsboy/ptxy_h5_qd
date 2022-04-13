@@ -219,13 +219,16 @@ export default {
     }
   },
   async created() {
-    this.getItemList()
+    await this.getItemList()
 
     // 瀑布排序
     // await this.pullList()
-    this.$nextTick(() => {
-      this.$refs.scrollBody.style.height = document.documentElement.clientHeight - this.$refs.searchoutside.clientHeight - 30 + 'px'
-    })
+    if (this.itemDeatil.length !== 0) {
+      this.$nextTick(() => {
+        this.$refs.scrollBody.style.height = document.documentElement.clientHeight - this.$refs.searchoutside.clientHeight - 30 + 'px'
+      })
+    }
+
 
     this.$func.axios(this.$api.getSortList, {}, {
       type: 'get',

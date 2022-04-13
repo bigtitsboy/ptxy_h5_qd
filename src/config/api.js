@@ -18,6 +18,10 @@ export default {
   updateShopOrder: '/order/shopOrder',
   getSecondhandGoodsList: '/goods/secondhandGoods/list',
   getSecondhandGoodsListSelf: '/goods/secondhandGoods/publishList',
-  listInfo:'/activity/info/list',
-  getListInfo:'/activity/info/'
+  listInfo: '/activity/info/list',
+  getListInfo: '/activity/info/',
+  addFound: '/lost/found',
+  listFound: '/lost/found/list',
+  listFriends: '/help/friends/list',
+  addFriends: '/help/friends'
 }

@@ -24,6 +24,10 @@ import sencondHandGoodsDetail from "../views/secondhandGoods/sencondHandGoodsDet
 import goodsListSelf from "../views/secondhandGoods/goodsListSelf";
 import activityInfo from "../views/activity/activityInfo";
 import activityInfoDetail from "../views/activity/activityInfoDetail";
+import found from "../views/lost/found";
+import addLostGoods from "../views/lost/addLostGoods";
+import friend from "../views/help/friend";
+import addHelp from "../views/help/addHelp";
 
 Vue.use(Router);
 
@@ -164,6 +168,21 @@ const routerList = [{
     meta: {
       title: '发布商品'
     }
+  }, {
+    path: '/addLostGoods',
+    name: 'addLostGoods',
+    component: addLostGoods,
+    meta: {
+      title: '发布失物招领商品'
+    }
+  },
+  {
+    path: '/addHelp',
+    name: 'addHelp',
+    component: addHelp,
+    meta: {
+      title: '发布交友信息'
+    }
   },
   {
     path: '/shopGoods',
@@ -187,6 +206,22 @@ const routerList = [{
     component: activityInfoDetail,
     meta: {
       title: '活动信息'
+    }
+  },
+  {
+    path: '/found',
+    name: 'found',
+    component: found,
+    meta: {
+      title: '失物招领'
+    }
+  },
+  {
+    path: '/friend',
+    name: 'friend',
+    component: friend,
+    meta: {
+      title: '失物招领'
     }
   }
 ];
