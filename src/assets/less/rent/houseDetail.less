@@ -1,0 +1,157 @@
+.view-wrap.houseDetail-main {
+  //height: 100%;
+  //padding: 0 0.5rem;
+  position: relative;
+  display: flex;
+  //overflow: visible;
+  //flex-wrap: wrap;
+  flex-direction: column;
+  height: 100%;
+  background: #FFFFFF;
+
+  .headLine {
+    padding: 0 0.2rem;
+    display: flex;
+    flex-direction: row;
+    height: 0.8rem;
+    align-items: center;
+    justify-content: space-around;
+    background: #46a6f0;
+
+    .back {
+      margin-right: auto;
+
+      img {
+        height: 0.5rem;
+        width: auto;
+      }
+    }
+
+    .title {
+      margin-right: 50%;
+      transform: translateX(50%);
+      font-size: 0.35rem;
+      color: #FFFFFF;
+    }
+
+    .share {
+      margin-left: auto;
+
+      img {
+        height: 0.5rem;
+        width: auto;
+      }
+    }
+  }
+
+  .scrollBody {
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: calc(100% - 0.8rem - 1rem);
+
+    .goodsDetail {
+      padding: 0.2rem;
+      display: flex;
+      flex-direction: column;
+
+      .goodsName {
+        font-size: 0.4rem;
+      }
+
+      .goodsPrice {
+        margin: 0.1rem 0;
+        color: red;
+        font-size: 0.45rem;
+      }
+
+      .otherMsg {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        color: #666;
+
+        .status {
+          display: flex;
+          flex-direction: row;
+
+          img {
+            margin-right: 0.1rem;
+            height: 0.4rem;
+            width: 0.4rem;
+          }
+        }
+
+        .time {
+          display: flex;
+          flex-direction: row;
+
+          img {
+            margin-right: 0.1rem;
+            height: 0.4rem;
+            width: 0.4rem;
+          }
+        }
+      }
+
+      .sendDetail {
+        margin: 0.2rem 0;
+        display: flex;
+        flex-direction: row;
+
+        .items {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          color: #666;
+          font-size: 0.3rem;
+
+          img {
+            margin-right: 0.1rem;
+            height: 0.5rem;
+            width: 0.5rem;
+          }
+        }
+      }
+    }
+
+  }
+
+
+  .bottomLine {
+    border-top: 1px solid #e6e6e6;
+    left: 0;
+    right: 0;
+    height: 1rem;
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .like {
+      margin-left: 0.25rem;
+      color: #666;
+      font-size: 0.3rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      img {
+        //margin-right: 0.1rem;
+        height: 0.5rem;
+        width: 0.5rem;
+      }
+    }
+
+    .chat {
+      font-size: 0.35rem;
+      padding: 0.3rem;
+      color: #FFFFFF;
+      background: #49a5ef;
+      height: 100%;
+      //width: fit-content;
+    }
+  }
+}

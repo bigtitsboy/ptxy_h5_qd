@@ -28,6 +28,9 @@ import found from "../views/lost/found";
 import addLostGoods from "../views/lost/addLostGoods";
 import friend from "../views/help/friend";
 import addHelp from "../views/help/addHelp";
+import house from "../views/rent/house";
+import addHouse from "../views/rent/addHouse";
+import houseDetail from "../views/rent/houseDetail";
 
 Vue.use(Router);
 
@@ -137,6 +140,13 @@ const routerList = [{
     meta: {
       title: '商品详情页'
     }
+  },{
+    path: '/houseDetail',
+    name: 'houseDetail',
+    component: houseDetail,
+    meta: {
+      title: '租房详情页'
+    }
   },
   {
     path: '/index',
@@ -162,6 +172,14 @@ const routerList = [{
     }
   },
   {
+    path: '/house',
+    name: 'house',
+    component: house,
+    meta: {
+      title: '租房'
+    }
+  },
+  {
     path: '/addGoods',
     name: 'addGoods',
     component: addGoods,
@@ -174,6 +192,13 @@ const routerList = [{
     component: addLostGoods,
     meta: {
       title: '发布失物招领商品'
+    }
+  }, {
+    path: '/addHouse',
+    name: 'addHouse',
+    component: addHouse,
+    meta: {
+      title: '发布租房信息'
     }
   },
   {

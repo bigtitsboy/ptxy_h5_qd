@@ -23,5 +23,7 @@ export default {
   addFound: '/lost/found',
   listFound: '/lost/found/list',
   listFriends: '/help/friends/list',
-  addFriends: '/help/friends'
+  addFriends: '/help/friends',
+  addRent: '/house/rent',
+  listRent: '/house/rent/list',
 }
